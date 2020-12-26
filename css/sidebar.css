@@ -1,0 +1,70 @@
+.thumbnail {
+  border: 2px solid #ffffff;
+  border-radius: 15px;
+  box-shadow: 5px 5px 5px grey;
+}
+
+.main-sidebar {
+  padding: 0;
+  position: absolute;
+  top: 60px;
+  z-index: 7;
+}
+
+.main-sidebar>a {
+  background: #ffffff;
+  border-radius: 0 15px 15px 0;
+  color: #008f95;
+  display: block;
+  height: 55px;
+  line-height: 55px;
+  margin-bottom: 10px;
+  position: relative;
+  text-align: left;
+  transition: 0.3s;
+  width: 170px;
+  left: -117px;
+  box-shadow: 1px 1px 5px grey;
+}
+
+.main-sidebar>a>.fa {
+  font-size: 25px;
+  left: 130px;
+  position: absolute;
+  top: 15px;
+}
+
+.main-sidebar>a:hover {
+  background: #008f95;
+  color: #f7f7f7;
+  text-decoration: none;
+  text-align: left;
+  width: 165px;
+  left: 0;
+  padding-left: 10px;
+}
+
+.main-sidebar>a.active {
+  background: #008f95;
+  color: #f7f7f7;
+}
+
+.main-sidebar .badge {
+  background-color: #e24e42;
+  font-family: verdana;
+  font-size: 13px;
+  right: -5px;
+  padding: 3px 5px;
+  position: absolute;
+  top: 0;
+}
+
+@media screen and (max-width: 768px) {
+
+  #sidebar_navbar .badge {
+    font-size: 13px;
+    right: 100px;
+    top: 10px;
+  }
+
+}

@@ -1,0 +1,24 @@
+{
+  "name": "iSchool: Where Learning Begins",
+  "short_name": "iSchool",
+  "display": "fullscreen",
+  "background_color": "#008f95",
+  "description": "Where learning begins",
+  "icons": [{
+      "src": "pictures/modules/logo.png",
+      "type": "image/png",
+      "sizes": "48x48"
+    },
+    {
+      "src": "pictures/modules/logo.png",
+      "type": "image/png",
+      "sizes": "96x96"
+    },
+    {
+      "src": "pictures/modules/logo.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    }
+  ],
+  "start_url": "index.php"
+}

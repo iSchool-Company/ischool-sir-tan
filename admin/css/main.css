@@ -1,0 +1,142 @@
+body {
+  background-color: rgba(0, 143, 149, 0.6);
+  font-family: Verdana, sans-serif;
+}
+
+hr {
+  background-color: #d3d3d3;
+  height: 1px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.main-container-fluid {
+  padding-left: 0;
+}
+
+.col-md-9 {
+  padding-right: 0;
+}
+
+.breadcrumb {
+  border: 0 solid #ffffff;
+  border-radius: 15px;
+  box-shadow: 5px 5px 5px grey;
+  font-size: 12px;
+}
+
+.panel-default {
+  border: 0 solid #ffffff;
+  border-radius: 25px;
+  box-shadow: 5px 5px 5px grey;
+}
+
+.panel-heading {
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+}
+
+.panel-footer {
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+}
+
+.panel-gray {
+  border: 1px solid #dfe3ee;
+  border-radius: 25px;
+}
+
+.text-main-green,
+.text-main-green:hover,
+.text-main-green:focus {
+  color: #008f95;
+}
+
+.text-main-red,
+.text-main-red:hover,
+.text-main-red:focus {
+  color: #e24e42;
+}
+
+.text-main-black,
+.text-main-black:hover,
+.text-main-black:focus {
+  color: #333333;
+}
+
+.modal-content {
+  border: 7px solid rgba(139, 157, 195, 0.2);
+  border-radius: 25px;
+}
+
+.modal-header {
+  border-top-left-radius: 19px;
+  border-top-right-radius: 19px;
+  padding: 5px 15px;
+}
+
+.modal-body {
+  max-height: 485px;
+  overflow: auto;
+}
+
+.pagination {
+  margin-top: 0;
+}
+
+.pagination>li:first-child>a {
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 10px;
+}
+
+.pagination>li:last-child>a {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 25px;
+}
+
+.pagination>li>a {
+  margin-left: 3px;
+  border-radius: 25px;
+}
+
+.pagination>li>a:hover,
+.pagination>li>a:focus {
+  background-color: #337ab7;
+  color: #f7f7f7;
+}
+
+.tooltip-inner {
+  background-color: #008f95;
+}
+
+.tooltip.top .tooltip-arrow,
+.tooltip.top-left .tooltip-arrow,
+.tooltip.top-right .tooltip-arrow,
+.tooltip.bottom .tooltip-arrow,
+.tooltip.bottom-left .tooltip-arrow,
+.tooltip.bottom-right .tooltip-arrow {
+  border-top-color: #008f95;
+  border-bottom-color: #008f95;
+}
+
+.tooltip.left .tooltip-arrow {
+  border-left-color: #008f95;
+}
+
+.tooltip.right .tooltip-arrow {
+  border-right-color: #008f95;
+}
+
+.tooltip-inner {
+  white-space: nowrap;
+  max-width: none;
+}
+
+@media screen and (max-width: 768px) {
+
+  .tooltip {
+    display: none !important;
+  }
+
+}

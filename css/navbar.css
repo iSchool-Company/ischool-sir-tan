@@ -1,0 +1,171 @@
+.navbar {
+  background-color: rgba(0, 0, 0, 0.6);
+  border: 0;
+}
+
+.navbar-brand {
+  padding: 5px 15px;
+}
+
+.ischool-logo {
+  height: 40px;
+  width: 135px;
+}
+
+.nav>li>a.navbar-menu {
+  color: #f7f7f7;
+  font-size: 15px;
+  position: relative;
+}
+
+.nav>li>a.navbar-menu:hover,
+.nav>li.active>a.navbar-menu {
+  background-color: #f7f7f7;
+  color: #008f95;
+}
+
+.nav .badge {
+  background-color: #e24e42;
+  font-family: verdana;
+  font-size: 13px;
+  right: 5px;
+  padding: 1px 3px;
+  position: absolute;
+  top: 11px;
+}
+
+#my_profile_dropdown>.dropdown-menu {
+  background-color: rgba(0, 0, 0, 0.7);
+  min-width: 200px;
+  padding: 0;
+}
+
+#my_profile_dropdown>.dropdown-menu>li>a {
+  color: #f7f7f7;
+  padding: 10px 15px;
+}
+
+#my_profile_dropdown>.dropdown-menu>li>a:hover,
+#my_profile_dropdown>.dropdown-menu>.active>a {
+  background-color: #f7f7f7;
+  color: #008f95;
+  font-size: 16px;
+}
+
+.navbar-menu>img {
+  height: 80px;
+  width: 80px;
+}
+
+.dropdown-menu>.divider {
+  margin: 0;
+}
+
+@media screen and (max-width: 768px) {
+
+  .navbar>.container-fluid {
+    padding-left: 6px;
+    padding-right: 6px;
+  }
+
+  .container-fluid>.navbar-header {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .navbar-header>.col-xs-4 {
+    padding-right: 0px;
+    padding-left: 0px;
+  }
+
+  [data-target="#sidebar_navbar"] {
+    float: left;
+    padding: 9px 10px;
+  }
+
+  [data-target="#settings_navbar"] {
+    border: 0px solid transparent;
+    margin-right: 0;
+    padding: 5px 15px;
+  }
+
+  [data-target="#settings_navbar"] .fa-ellipsis-v {
+    color: #f7f7f7;
+    font-size: 25px;
+  }
+
+  .col-xs-4>.navbar-brand {
+    float: none;
+    padding: 6px 0;
+  }
+
+  .ischool-logo {
+    display: block;
+    height: 35px;
+    margin: 8px auto;
+    width: 115px;
+  }
+
+  .navbar-nav {
+    margin: 0 -15px;
+  }
+
+  .nav>li>a.sidebar-menu,
+  .nav>li>a.navbar-menu {
+    color: #f7f7f7;
+    font-size: 15px;
+  }
+
+  .nav>li>a.sidebar-menu:hover,
+  .nav>li>a.navbar-menu:hover {
+    background-color: #f7f7f7;
+    color: #008f95;
+    font-size: 16px;
+  }
+
+  .navbar-collapse>.nav>li.active>a {
+    background-color: #f7f7f7;
+    color: #008f95;
+    width: 100%;
+  }
+
+  .navbar-fixed-bottom {
+    background-color: #f7f7f7;
+    box-shadow: 0 -1px 10px #bababa;
+    min-height: 40px;
+  }
+
+  .navbar-fixed-bottom li {
+    text-align: center;
+  }
+
+  .navbar-fixed-bottom .navbar-menu {
+    background-color: #f7f7f7;
+    color: #757575;
+    font-size: 20px;
+    line-height: 40px;
+    position: relative;
+  }
+
+  .navbar-fixed-bottom .navbar-menu:hover {
+    background-color: transparent;
+    color: #008f95;
+  }
+
+  .navbar-fixed-bottom .active>a {
+    color: #008f95;
+  }
+
+  .nav .badge {
+    right: 0;
+    padding: 2px 4px;
+    top: -3px;
+  }
+
+  #nav_my_profile>.navbar-menu>img {
+    height: 25px;
+    margin-bottom: 5px;
+    width: 25px;
+  }
+
+}

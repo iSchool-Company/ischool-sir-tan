@@ -1,0 +1,13 @@
+var quizId = 0;
+var quizType = '1';
+var questionId = 0;
+var quizRetriever = null;
+var quizFiller = null;
+var quizContentRetriever = null;
+var quizAll = true;
+var resultRetriever = null;
+var resultFiller = null;
+var publishNow = true;
+var questionLength = 0;
+var sortBy = 'Date Taken';
+var submissionId = 0;

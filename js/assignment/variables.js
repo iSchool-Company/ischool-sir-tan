@@ -1,0 +1,11 @@
+var assignmentId = 0;
+var assignmentRetriever = null;
+var assignmentFiller = null;
+var assignmentContentRetriever = null;
+var resultRetriever = null;
+var resultFiller = null;
+var publishNow = true;
+var editHasFile = false;
+var editFileDirty = false;
+var sortBy = 'Date Submitted';
+var submissionId = 0;

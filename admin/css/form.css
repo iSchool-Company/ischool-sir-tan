@@ -1,0 +1,119 @@
+.form-control {
+  border-radius: 25px;
+  font-size: 12px;
+  height: 29px;
+  resize: none;
+  padding: 5px 10px;
+}
+
+.input-group-addon {
+  border-radius: 25px;
+  font-size: 12px;
+  height: 29px;
+  resize: none;
+}
+
+.help-block {
+  font-size: 12px;
+}
+
+.btn {
+  font-size: 11px;
+  padding: 5px 10px;
+}
+
+.btn-success .badge {
+  color: #008f95;
+  background-color: #f7f7f7;
+}
+
+.btn-success,
+.btn-success:focus {
+  background-color: #f7f7f7;
+  border: 2px solid #008f95;
+  border-radius: 25px;
+  color: #008f95;
+  font-weight: bolder;
+}
+
+.btn-success:hover,
+.btn-success:active,
+.btn-success:active:focus,
+.btn-success:active:hover {
+  background-color: #008f95;
+  border: 2px solid #008f95;
+  border-radius: 25px;
+  color: #f7f7f7;
+  font-weight: bolder;
+}
+
+.btn-danger,
+.btn-danger:focus {
+  background-color: #f7f7f7;
+  border: 2px solid #e24e42;
+  border-radius: 25px;
+  color: #e24e42;
+  font-weight: bolder;
+}
+
+.btn-danger:hover,
+.btn-danger:active,
+.btn-danger:active:focus,
+.btn-danger:active:hover {
+  background-color: #e24e42;
+  border: 2px solid #e24e42;
+  border-radius: 25px;
+  color: #f7f7f7;
+  font-weight: bolder;
+}
+
+.btn-warning,
+.btn-warning:focus {
+  background-color: #f7f7f7;
+  border: 2px solid #e9b000;
+  border-radius: 25px;
+  color: #e9b000;
+  font-weight: bolder;
+}
+
+.btn-gray,
+.btn-gray:focus,
+.btn-gray:active {
+  background-color: #e6e6e6;
+  border: 2px solid #8c8c8c;
+  border-radius: 25px;
+  color: #8c8c8c;
+  font-weight: bolder;
+}
+
+.btn-gray:hover {
+  background-color: #8c8c8c;
+  border: 2px solid #8c8c8c;
+  border-radius: 25px;
+  color: #e6e6e6;
+  font-weight: bolder;
+}
+
+.btn-link:hover,
+.btn-link:focus {
+  background-color: #dfe3ee;
+  border-radius: 25px;
+}
+
+.dropdown-menu [data-toggle="modal"] {
+  color: #008f95;
+}
+
+.btn-link>.fa-gear,
+[data-toggle="tooltip"] {
+  font-size: 16px;
+}
+
+@media screen and (max-width: 768px) {
+
+  .btn-link:hover,
+  .btn-link:focus {
+    background-color: transparent;
+  }
+
+}

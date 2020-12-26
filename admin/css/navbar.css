@@ -1,0 +1,62 @@
+.navbar {
+  background-color: rgba(0, 0, 0, 0.6);
+  border: 0;
+}
+
+.navbar-brand {
+  padding: 5px 15px;
+}
+
+.ischool-logo {
+  height: 40px;
+  width: 135px;
+}
+
+.nav>li>a.navbar-menu {
+  color: #f7f7f7;
+  font-size: 15px;
+}
+
+.nav>li>a.navbar-menu:hover,
+.nav>li.active>a.navbar-menu {
+  background-color: #f7f7f7;
+  color: #008f95;
+}
+
+.dropdown-menu {
+  background-color: rgba(0, 0, 0, 0.9);
+  min-width: 200px;
+  padding: 0;
+}
+
+.dropdown-menu>li>a {
+  color: #f7f7f7;
+  padding: 10px 15px;
+}
+
+.dropdown-menu>li>a:hover,
+.dropdown-menu>.active>a {
+  background-color: #f7f7f7;
+  color: #008f95;
+  font-size: 16px;
+}
+
+.navbar-menu>img {
+  height: 80px;
+  width: 80px;
+}
+
+.dropdown-menu>.divider {
+  margin: 0;
+}
+
+@media screen and (max-width: 768px) {
+
+  .ischool-logo {
+    display: block;
+    height: 35px;
+    margin: 2px auto;
+    width: 115px;
+  }
+
+}
