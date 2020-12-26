@@ -1,1 +1,1 @@
-# ischool-sir-tan
+# iSchool Sir Tan
