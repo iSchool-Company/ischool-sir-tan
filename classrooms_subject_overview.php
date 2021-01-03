@@ -77,7 +77,12 @@ session_start();
 
           <div class="panel-body">
 
-            <h4>Instructor:</h4>
+            <h4>
+              Instructor:
+              <button class="btn btn-success" type="button" id="rate_button" data-toggle="modal" data-target="#rate_modal" style="display:none;">
+                <span class="fa fa-star"></span> Rate
+              </button>
+            </h4>
 
             <div class="media" style="margin-bottom:20px;">
               <div class="media-left">
@@ -291,6 +296,88 @@ session_start();
     </div>
   </div>
 
+  <div id="rate_modal" class="modal fade">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <button class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Rate Instructor</h4>
+        </div>
+
+        <div class="modal-body">
+
+          <form id="rate_form" role="form" autocomplete="off">
+
+            <div class="form-group has-feedback">
+              <label class="col-sm-3 control-label">Instructor:</label>
+              <div class="col-sm-9">
+                <p id="rate_instructor_name" class="form-control-static"></p>
+              </div>
+            </div>
+
+            <div class="form-group has-feedback">
+              <label class="col-sm-3 control-label">Class:</label>
+              <div class="col-sm-9">
+                <p id="rate_class_name" class="form-control-static"></p>
+              </div>
+            </div>
+
+            <div class="form-group has-feedback">
+              <label class="col-sm-3 control-label">Subject:</label>
+              <div class="col-sm-9">
+                <p id="rate_subject_name" class="form-control-static"></p>
+              </div>
+            </div>
+
+            <div class="form-group has-feedback">
+              <label class="control-label">Feedback Details:</label>
+              <span class="inline-block pull-right">
+                <a href="#" data-toggle="modal" data-target="#rate_guide_modal">how to write a good feedback</a>
+              </span>
+              <textarea class="form-control" rows="4" name="content" placeholder="What do you think of this material?"></textarea>
+              <span class="glyphicon form-control-feedback"></span>
+              <span class="help-block"></span>
+            </div>
+
+            <label>Please rate this instructor:</label>
+            <div class="rate-picker">
+              <div class="rate-button rate-negative">
+                <span class="rate-icon fa fa-frown-o"></span>
+                <br>
+                <span>Negative</span>
+              </div>
+              <div class="rate-button rate-neutral active">
+                <span class="rate-icon fa fa-meh-o"></span>
+                <br>
+                <span>Neutral</span>
+              </div>
+              <div class="rate-button rate-positive">
+                <span class="rate-icon fa fa-smile-o"></span>
+                <br>
+                <span>Positive</span>
+              </div>
+            </div>
+
+            <div class="clearfix"></div>
+
+          </form>
+
+        </div>
+
+        <div class="modal-footer">
+          <button class="btn btn-success" type="button" name="submit_button">
+            <span class="fa fa-send"></span> Submit
+          </button>
+          <button class="btn btn-danger" type="button" data-dismiss="modal">
+            <span class="fa fa-remove"></span> Cancel
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
   <div id="loading_modal" class="modal fade" style="margin-top:72px;" data-backdrop="static" data-keyboard="false">
     <div class="modal-dialog modal-sm">
       <div class="modal-content">
@@ -300,6 +387,30 @@ session_start();
             <img src="pictures/modules/loading2.gif" style="width:50px;">
             <h4>Please Wait.....</h4>
           </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div id="rate_guide_modal" class="modal fade">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <div class="modal-body modal-body-full">
+
+          <h4>What is Lorem Ipsum?</h4>
+          <ol>
+            <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</li>
+            <li>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</li>
+            <li>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</li>
+            <li>It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</li>
+          </ol>
+
+          <div class="text-center">
+            <button class="btn btn-success" type="button" data-dismiss="modal">Got it!</button>
+          </div>
+
         </div>
 
       </div>
@@ -350,6 +461,7 @@ session_start();
 
   <!-- Utilities -->
   <script src="js/utilities/date.js"></script>
+  <script src="js/utilities/viewport.js"></script>
   <script src="js/utilities/input.js"></script>
 
   <!-- Main Notification Worker -->
@@ -362,6 +474,7 @@ session_start();
   <script src="js/my_classroom_display_manager.js"></script>
 
   <!-- Classroom Overview Workers -->
+  <script src="js/overview/variables.js"></script>
   <script src="js/overview/view.js"></script>
   <script src="js/overview/displays.js"></script>
   <script src="js/overview/resets.js"></script>
@@ -369,6 +482,7 @@ session_start();
   <script src="js/overview/operations/manipulation.js"></script>
   <script src="js/overview/events/init.js"></script>
   <script src="js/overview/events/editing.js"></script>
+  <script src="js/overview/events/rating.js"></script>
 
 </body>
 

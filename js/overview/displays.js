@@ -16,6 +16,7 @@ function showClassroomDetails(data) {
     if ($('#teacher_name').text() !== info.teacher_name) {
 
       $('#teacher_name').text(info.teacher_name);
+      $('#rate_instructor_name').text(info.teacher_name);
     }
 
     if ($('#teacher_username').text() !== '@' + info.teacher_username) {
@@ -26,11 +27,13 @@ function showClassroomDetails(data) {
     if ($('#class_name').text() !== info.class_name) {
 
       $('#class_name').text(info.class_name);
+      $('#rate_class_name').text(info.class_name);
     }
 
     if ($('#subject_name').text() !== info.subject_name) {
 
       $('#subject_name').text(info.subject_name);
+      $('#rate_subject_name').text(info.subject_name);
     }
 
     if ($('#date_end').text() !== info.date_end) {
@@ -41,6 +44,14 @@ function showClassroomDetails(data) {
     if ($('#description').text() !== info.description) {
 
       $('#description').text(info.description)
+    }
+
+    let rateButton = $('#rate_button');
+
+    if (myType === 'Student' && !info.has_review) {
+      showIfEver(rateButton);
+    } else {
+      hideIfEver(rateButton);
     }
 
     details = info;

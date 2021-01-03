@@ -65,3 +65,55 @@ function updateClassroom(
     }
   });
 }
+
+function rateInstructor(
+  usrId,
+  crId,
+  content,
+  rateValue
+) {
+
+  var formData = new FormData();
+
+  formData.append('user_id', usrId);
+  formData.append('classroom_id', crId);
+  formData.append('content', content);
+  formData.append('rate_value', rateValue);
+
+  $.ajax({
+    method: 'post',
+    url: 'database/classroom/rate.php',
+    data: formData,
+    processData: false,
+    contentType: false,
+    success: function (data) {
+
+      var responseJSON = JSON.parse(data);
+      var response = responseJSON.response;
+
+      if (response === 'successful') {
+
+        setTimeout(function () {
+
+          $('#prompt_modal [name="message"]').html('<b class="text-success">Successful!</b> Instructor has been rated!');
+          $('#rate_modal').modal('hide');
+          $('#loading_modal').modal('hide');
+          $('#prompt_modal').modal('show');
+        }, 500);
+      } else if (response === 'existing') {
+
+        $('#prompt_modal [name="message"]').html('<b class="text-warning">Oops!</b> Instructor has already been rated!');
+        $('#loading_modal').modal('hide');
+        $('#prompt_modal').modal('show');
+      } else {
+
+        setTimeout(function () {
+
+          $('#prompt_modal [name="message"]').html('<b class="text-warning">Oops!</b> Something went wrong!');
+          $('#loading_modal').modal('hide');
+          $('#prompt_modal').modal('show');
+        }, 500);
+      }
+    }
+  });
+}

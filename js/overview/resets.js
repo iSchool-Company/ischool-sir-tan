@@ -11,4 +11,18 @@ $(document).ready(function () {
 
     clearEditModal($(this));
   });
+
+  $('#rate_modal').on('hidden.bs.modal', function () {
+
+    resetRateModal();
+  });
 });
+
+function resetRateModal() {
+
+  var rateForm = $('#rate_form');
+  var content = rateForm.find('[name="content"]');
+
+  clearResult(content);
+  setRateValue('neutral');
+}
