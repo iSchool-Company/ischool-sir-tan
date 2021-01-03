@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 26, 2020 at 05:33 PM
+-- Generation Time: Jan 03, 2021 at 10:04 AM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.0
 
@@ -220,6 +220,20 @@ CREATE TABLE `classrooms` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `classrooms_reviews`
+--
+
+CREATE TABLE `classrooms_reviews` (
+  `id` int(11) NOT NULL,
+  `classroom_id` int(11) NOT NULL,
+  `student_id` int(11) NOT NULL,
+  `content` varchar(1000) NOT NULL,
+  `rate` varchar(3) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `classroom_student_designation`
 --
 
@@ -299,6 +313,21 @@ CREATE TABLE `materials` (
   `file_name` varchar(255) NOT NULL,
   `date_time_added` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `materials_reviews`
+--
+
+CREATE TABLE `materials_reviews` (
+  `id` int(11) NOT NULL,
+  `material_id` int(11) NOT NULL,
+  `student_id` int(11) NOT NULL,
+  `content` varchar(1000) NOT NULL,
+  `rate` varchar(3) NOT NULL,
+  `anonymous` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -489,7 +518,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `type`, `first_name`, `middle_name`, `last_name`, `gender`, `birthday`, `email`, `email_extension`, `mobile_number`, `username`, `password`, `profile_picture`, `last_date_time_online`) VALUES
-(1, 'Student', 'Jamel', 'Natalio', 'Cagampang', 'Male', '1997-10-25', 'cagampang', 'yahoo.com', '091230696889', 'painlover25', 'e10adc3949ba59abbe56e057f20f883e', 'pictures/profile_pictures/120170921124404.jpg', '2020-12-26 23:37:05'),
+(1, 'Student', 'Jamel', 'Natalio', 'Cagampang', 'Male', '1997-10-25', 'cagampang', 'yahoo.com', '091230696889', 'painlover25', 'e10adc3949ba59abbe56e057f20f883e', 'pictures/profile_pictures/120170921124404.jpg', '2021-01-03 17:04:32'),
 (2, 'Student', 'Zeah Mae', 'Galve', 'Colarat', 'Female', '2017-08-31', 'zeyuuuuh', 'yahoo.com', '09123069689', 'zeyuuuuh', 'e10adc3949ba59abbe56e057f20f883e', 'pictures/profile_pictures/220170921124727.jpg', '2017-10-03 11:49:45'),
 (3, 'Student', 'Desiree Anne', 'Sardido', 'Flores', 'Female', '1998-06-05', 'desiree', 'gmail.com', '09085285670', 'desiree_flores', 'e10adc3949ba59abbe56e057f20f883e', 'pictures/profile_pictures/20170130173105.jpg', '2017-10-04 16:08:00'),
 (4, 'Student', 'Kenneth', 'Baldado', 'Ybanez', 'Male', '1997-06-13', 'hyperfire13', '', NULL, 'kenneth', 'e10adc3949ba59abbe56e057f20f883e', 'pictures/profile_pictures/20170130174118.jpg', '2017-09-20 01:54:20'),
@@ -612,6 +641,12 @@ ALTER TABLE `classrooms`
 ALTER TABLE `classrooms` ADD FULLTEXT KEY `class` (`class`,`subject`);
 
 --
+-- Indexes for table `classrooms_reviews`
+--
+ALTER TABLE `classrooms_reviews`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `classroom_student_designation`
 --
 ALTER TABLE `classroom_student_designation`
@@ -645,6 +680,12 @@ ALTER TABLE `log_in_history`
 -- Indexes for table `materials`
 --
 ALTER TABLE `materials`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `materials_reviews`
+--
+ALTER TABLE `materials_reviews`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -785,6 +826,12 @@ ALTER TABLE `classrooms`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `classrooms_reviews`
+--
+ALTER TABLE `classrooms_reviews`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `classroom_student_designation`
 --
 ALTER TABLE `classroom_student_designation`
@@ -818,6 +865,12 @@ ALTER TABLE `log_in_history`
 -- AUTO_INCREMENT for table `materials`
 --
 ALTER TABLE `materials`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `materials_reviews`
+--
+ALTER TABLE `materials_reviews`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
