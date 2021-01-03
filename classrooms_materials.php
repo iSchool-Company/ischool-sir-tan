@@ -222,6 +222,83 @@ session_start();
     </div>
   </div>
 
+  <div id="rate_modal" class="modal fade">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <button class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Rate Material</h4>
+        </div>
+
+        <div class="modal-body">
+
+          <form id="rate_form" role="form" autocomplete="off">
+
+            <div class="form-group has-feedback">
+              <label>Choose a Material:</label>
+              <select class="form-control" name="materials">
+              </select>
+            </div>
+
+            <div class="form-group has-feedback">
+              <label class="control-label">Feedback Details:</label>
+              <span class=" inline-block pull-right">
+                <a href="#" data-toggle="modal" data-target="#rate_guide_modal">how to write a good feedback</a>
+              </span>
+              <textarea class="form-control" rows="4" name="content" placeholder="What do you think of this material?"></textarea>
+              <span class="glyphicon form-control-feedback"></span>
+              <span class="help-block"></span>
+            </div>
+
+            <label>Please rate this module:</label>
+            <div class="rate-picker">
+              <div class="rate-button rate-negative">
+                <span class="rate-icon fa fa-frown-o"></span>
+                <br>
+                <span>Negative</span>
+              </div>
+              <div class="rate-button rate-neutral active">
+                <span class="rate-icon fa fa-meh-o"></span>
+                <br>
+                <span>Neutral</span>
+              </div>
+              <div class="rate-button rate-positive">
+                <span class="rate-icon fa fa-smile-o"></span>
+                <br>
+                <span>Positive</span>
+              </div>
+            </div>
+
+            <div class="clearfix"></div>
+
+            <br>
+
+            <div class="form-group">
+              <label>Send feedback as <span id="anonymous">anonymous</span></label>
+              <label class="switch">
+                <input type="checkbox" name='anonymous' checked>
+                <span class="slider round"></span>
+              </label>
+            </div>
+
+          </form>
+
+        </div>
+
+        <div class="modal-footer">
+          <button class="btn btn-success" type="button" name="submit_button">
+            <span class="fa fa-send"></span> Submit
+          </button>
+          <button class="btn btn-danger" type="button" data-dismiss="modal">
+            <span class="fa fa-remove"></span> Cancel
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
   <div id="delete_modal" class="modal fade">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -257,6 +334,30 @@ session_start();
             <img src="pictures/modules/loading2.gif" style="width:50px;">
             <h4>Please Wait.....</h4>
           </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div id="rate_guide_modal" class="modal fade">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <div class="modal-body modal-body-full">
+
+          <h4>What is Lorem Ipsum?</h4>
+          <ol>
+            <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</li>
+            <li>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</li>
+            <li>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</li>
+            <li>It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</li>
+          </ol>
+
+          <div class="text-center">
+            <button class="btn btn-success" type="button" data-dismiss="modal">Got it!</button>
+          </div>
+
         </div>
 
       </div>
@@ -333,6 +434,7 @@ session_start();
   <script src="js/materials/events/deleting.js"></script>
   <script src="js/materials/events/backpacking.js"></script>
   <script src="js/materials/events/pinning.js"></script>
+  <script src="js/materials/events/rating.js"></script>
 
 </body>
 

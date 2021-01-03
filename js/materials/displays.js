@@ -127,6 +127,7 @@ function showDisplay(
     var type = rootDOM.find('[name="type"]');
     var editButton = rootDOM.find('[name="edit_button"]');
     var backpackButton = rootDOM.find('[name="backpack_button"]');
+    var rateButton = rootDOM.find('[name="rate_button"]');
     var pinButton = rootDOM.find('[name="pin_button"]');
     var removeButton = rootDOM.find('[name="remove_button"]');
     var typeValue = '';
@@ -187,7 +188,14 @@ function showDisplay(
       showIfEver(pinButton);
       showIfEver(removeButton);
     } else {
+
       showIfEver(backpackButton);
+
+      if (info.has_review == 0) {
+        showIfEver(rateButton);
+      } else {
+        hideIfEver(rateButton);
+      }
     }
   } else {
 
@@ -237,5 +245,23 @@ function showClassrooms(classrooms) {
     );
 
     classroomSelect.append(classroomNodeTemp);
+  }
+}
+
+function showMaterials(materials) {
+
+  var materialSelect = $('#rate_form [name="materials"]');
+  var length = materials.length;
+
+  materialSelect.empty();
+
+  for (var i = 0; i < length; i++) {
+
+    var materialsNodeTemp = materialNode(
+      materials[i].id,
+      materials[i].file_name
+    );
+
+    materialSelect.append(materialsNodeTemp);
   }
 }

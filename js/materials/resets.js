@@ -18,6 +18,21 @@ function resetAddModal() {
   clearResult(fileR);
 }
 
+function resetRateModal() {
+
+  var rateForm = $('#rate_form');
+  var materialSelect = rateForm.find('[name="materials"]');
+  var content = rateForm.find('[name="content"]');
+  var anonymous = rateForm.find('[name="anonymous"]');
+  var anonymousSpan = $('#anonymous');
+
+  materialSelect.empty();
+  clearResult(content);
+  setRateValue('neutral');
+  anonymous.prop('checked', true);
+  anonymousSpan.text('anonymous');
+}
+
 function resetFileChooser(name) {
 
   $('#' + name + '_form [name="file"]').text('Choose File');
@@ -31,5 +46,10 @@ $(document).ready(function () {
   $('#add_modal').on('hidden.bs.modal', function () {
 
     resetAddModal();
+  });
+
+  $('#rate_modal').on('hidden.bs.modal', function () {
+
+    resetRateModal();
   });
 });

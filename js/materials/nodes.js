@@ -36,6 +36,10 @@ function materialsNode(id) {
     '<span class="fa fa-thumb-tack" data-toggle="tooltip" data-placement="auto" title="Pin" style="font-size:18px;"></span>' +
     '</a> ' +
     '&nbsp;&nbsp; ' +
+    '<a href="#rate_modal" name="rate_button" data-toggle="modal" style="display:none;"> ' +
+    '<span class="fa fa-star" data-toggle="tooltip" data-placement="auto" title="Rate" style="font-size:18px;"></span>' +
+    '</a> ' +
+    '&nbsp;&nbsp; ' +
     '<a href="#delete_modal" name="remove_button" data-toggle="modal" style="display:none;"> ' +
     '<span class="fa fa-remove" data-toggle="tooltip" data-placement="auto" title="Remove" style="font-size:18px;"></span>' +
     '</a> ' +
@@ -52,5 +56,15 @@ function classroomNode(
 
   return $(
     '<option value="' + id + '">' + name + '</option>'
+  );
+}
+
+function materialNode(
+  id,
+  fileName
+) {
+
+  return $(
+    '<option value="' + id + '"' + (id == materialsId ? ' selected' : '') + '>' + fileName + '</option>'
   );
 }

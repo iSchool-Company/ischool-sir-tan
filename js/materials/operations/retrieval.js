@@ -46,6 +46,8 @@ function retrieveDisplay(
     url: 'database/materials/retrieve/display.php',
     data: {
       materials_id: mtrlId,
+      user_id: myId,
+      is_student: myType === 'Student',
       version: version
     },
     success: function (data) {
@@ -100,6 +102,39 @@ function retrieveClassrooms(
 
         $('#pin_form [name="classrooms"]').append('<option>No Other Classroom Yet</option>');
         $('#pin_modal [name="confirm_button"]').attr('disabled', true);
+      }
+    }
+  });
+}
+
+
+function retrieveMaterialsForRating(
+  usrId,
+  crId
+) {
+
+  $.ajax({
+    url: 'database/materials/retrieve/names.php',
+    data: {
+      user_id: usrId,
+      classroom_id: crId
+    },
+    success: function (data) {
+
+      var responseJSON = JSON.parse(data);
+      var response = responseJSON.response;
+
+      if (response === 'found') {
+
+        var materials = responseJSON.materials;
+
+        showMaterials(materials);
+
+        $('#rate_modal [name="submit_button"]').attr('disabled', false);
+      } else {
+
+        $('#rate_form [name="materials"]').append('<option>No Materials To Be Rated Yet</option>');
+        $('#rate_modal [name="submit_button"]').attr('disabled', true);
       }
     }
   });
