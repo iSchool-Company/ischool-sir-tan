@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 03, 2021 at 10:04 AM
+-- Generation Time: Jan 09, 2021 at 08:21 AM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.0
 
@@ -213,6 +213,7 @@ CREATE TABLE `classrooms` (
   `subject` varchar(255) NOT NULL,
   `description` longtext NOT NULL,
   `date_time_created` datetime NOT NULL,
+  `is_review_open` tinyint(1) NOT NULL DEFAULT 0,
   `date_end` date NOT NULL,
   `is_deleted` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -227,6 +228,11 @@ CREATE TABLE `classrooms_reviews` (
   `id` int(11) NOT NULL,
   `classroom_id` int(11) NOT NULL,
   `student_id` int(11) NOT NULL,
+  `rate_1` varchar(3) NOT NULL,
+  `rate_2` varchar(3) NOT NULL,
+  `rate_3` varchar(3) NOT NULL,
+  `rate_4` varchar(3) NOT NULL,
+  `rate_5` varchar(3) NOT NULL,
   `content` varchar(1000) NOT NULL,
   `rate` varchar(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -324,6 +330,11 @@ CREATE TABLE `materials_reviews` (
   `id` int(11) NOT NULL,
   `material_id` int(11) NOT NULL,
   `student_id` int(11) NOT NULL,
+  `rate_1` varchar(3) NOT NULL,
+  `rate_2` varchar(3) NOT NULL,
+  `rate_3` varchar(3) NOT NULL,
+  `rate_4` varchar(3) NOT NULL,
+  `rate_5` varchar(3) NOT NULL,
   `content` varchar(1000) NOT NULL,
   `rate` varchar(3) NOT NULL,
   `anonymous` tinyint(1) NOT NULL
@@ -518,14 +529,14 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `type`, `first_name`, `middle_name`, `last_name`, `gender`, `birthday`, `email`, `email_extension`, `mobile_number`, `username`, `password`, `profile_picture`, `last_date_time_online`) VALUES
-(1, 'Student', 'Jamel', 'Natalio', 'Cagampang', 'Male', '1997-10-25', 'cagampang', 'yahoo.com', '091230696889', 'painlover25', 'e10adc3949ba59abbe56e057f20f883e', 'pictures/profile_pictures/120170921124404.jpg', '2021-01-03 17:04:32'),
-(2, 'Student', 'Zeah Mae', 'Galve', 'Colarat', 'Female', '2017-08-31', 'zeyuuuuh', 'yahoo.com', '09123069689', 'zeyuuuuh', 'e10adc3949ba59abbe56e057f20f883e', 'pictures/profile_pictures/220170921124727.jpg', '2017-10-03 11:49:45'),
+(1, 'Student', 'Jamel', 'Natalio', 'Cagampang', 'Male', '1997-10-25', 'cagampang', 'yahoo.com', '091230696889', 'painlover25', 'e10adc3949ba59abbe56e057f20f883e', 'pictures/profile_pictures/120170921124404.jpg', '2021-01-09 15:15:25'),
+(2, 'Student', 'Zeah Mae', 'Galve', 'Colarat', 'Female', '2017-08-31', 'zeyuuuuh', 'yahoo.com', '09123069689', 'zeyuuuuh', 'e10adc3949ba59abbe56e057f20f883e', 'pictures/profile_pictures/220170921124727.jpg', '2020-12-29 15:31:24'),
 (3, 'Student', 'Desiree Anne', 'Sardido', 'Flores', 'Female', '1998-06-05', 'desiree', 'gmail.com', '09085285670', 'desiree_flores', 'e10adc3949ba59abbe56e057f20f883e', 'pictures/profile_pictures/20170130173105.jpg', '2017-10-04 16:08:00'),
 (4, 'Student', 'Kenneth', 'Baldado', 'Ybanez', 'Male', '1997-06-13', 'hyperfire13', '', NULL, 'kenneth', 'e10adc3949ba59abbe56e057f20f883e', 'pictures/profile_pictures/20170130174118.jpg', '2017-09-20 01:54:20'),
 (5, 'Student', 'Ian Jasper', 'Rebana', 'Benito', 'Male', '1997-03-03', 'ian', '', NULL, 'ian_jasper', 'e10adc3949ba59abbe56e057f20f883e', 'pictures/profile_pictures/20170131020813.jpg', '2017-10-02 15:49:03'),
 (6, 'Student', 'Marry Joy', 'Palomar', 'Udto', 'Female', '1997-09-09', 'udto', '', NULL, 'marry_joy', 'e10adc3949ba59abbe56e057f20f883e', 'pictures/profile_pictures/20170205162914.jpg', '2017-10-02 15:54:54'),
 (7, 'Teacher', 'Noreen', 'M', 'Arcangel', 'Female', '1997-10-25', 'noreen', 'gmail.com', NULL, 'noreen', 'e10adc3949ba59abbe56e057f20f883e', 'pictures/profile_pictures/noreen.jpg', '2020-12-26 23:37:36'),
-(8, 'Teacher', 'Randy', 'Reyes', 'Otero', 'Male', '1990-10-25', 'randy_otero', 'gmail.com', '09306192586', 'randy_otero', 'e10adc3949ba59abbe56e057f20f883e', 'pictures/profile_pictures/820170921122344.jpg', '2020-12-27 00:32:50'),
+(8, 'Teacher', 'Randy', 'Reyes', 'Otero', 'Male', '1990-10-25', 'randy_otero', 'gmail.com', '09306192586', 'randy_otero', 'e10adc3949ba59abbe56e057f20f883e', 'pictures/profile_pictures/820170921122344.jpg', '2021-01-03 20:48:13'),
 (9, 'Student', 'Christine', 'Ubando', 'Danos', 'Female', NULL, NULL, NULL, NULL, 'christine', 'e10adc3949ba59abbe56e057f20f883e', 'pictures/profile_pictures/christine.jpg', '2017-10-02 16:06:25'),
 (10, 'Student', 'James Albert', 'San Juan', 'Salva', 'Male', NULL, NULL, NULL, NULL, 'albert', 'e10adc3949ba59abbe56e057f20f883e', 'pictures/profile_pictures/albert.jpg', '2017-10-02 16:15:10'),
 (11, 'Student', 'Alexie', 'Gapasinao', 'Ceromines', 'Female', NULL, NULL, NULL, NULL, 'alexie', 'e10adc3949ba59abbe56e057f20f883e', 'pictures/profile_pictures/alexie.jpg', '2017-10-02 15:57:48'),
