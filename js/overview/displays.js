@@ -48,7 +48,7 @@ function showClassroomDetails(data) {
 
     let rateButton = $('#rate_button');
 
-    if (myType === 'Student' && !info.has_review) {
+    if (myType === 'Student' && info.is_review_open && !info.has_review) {
       showIfEver(rateButton);
     } else {
       hideIfEver(rateButton);

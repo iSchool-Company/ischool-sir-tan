@@ -228,10 +228,10 @@ session_start();
 
         <div class="modal-header">
           <button class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Rate Material</h4>
+          <h4 class="modal-title">Rate a Material</h4>
         </div>
 
-        <div class="modal-body">
+        <div class="modal-body modal-body-full">
 
           <form id="rate_form" role="form" autocomplete="off">
 
@@ -240,6 +240,49 @@ session_start();
               <select class="form-control" name="materials">
               </select>
             </div>
+
+            <table class="table table-bordered table-condensed">
+              <thead>
+                <tr>
+                  <th>Rate this module per category:</th>
+                  <th class="text-center"><span class="fa fa-frown-o"></span></th>
+                  <th class="text-center"><span class="fa fa-meh-o"></span></th>
+                  <th class="text-center"><span class="fa fa-smile-o"></span></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Objectives are clearly stated</td>
+                  <td class="text-center"><input type="radio" name="rate_1" value="neg"></td>
+                  <td class="text-center"><input id="rate_1_neu" type="radio" name="rate_1" value="neu" checked></td>
+                  <td class="text-center"><input type="radio" name="rate_1" value="pos"></td>
+                </tr>
+                <tr>
+                  <td>Content is aligned with course</td>
+                  <td class="text-center"><input type="radio" name="rate_2" value="neg"></td>
+                  <td class="text-center"><input id="rate_2_neu" type="radio" name="rate_2" value="neu" checked></td>
+                  <td class="text-center"><input type="radio" name="rate_2" value="pos"></td>
+                </tr>
+                <tr>
+                  <td>Content is well organized</td>
+                  <td class="text-center"><input type="radio" name="rate_3" value="neg"></td>
+                  <td class="text-center"><input id="rate_3_neu" type="radio" name="rate_3" value="neu" checked></td>
+                  <td class="text-center"><input type="radio" name="rate_3" value="pos"></td>
+                </tr>
+                <tr>
+                  <td>Instructions are clearly stated</td>
+                  <td class="text-center"><input type="radio" name="rate_4" value="neg"></td>
+                  <td class="text-center"><input id="rate_4_neu" type="radio" name="rate_4" value="neu" checked></td>
+                  <td class="text-center"><input type="radio" name="rate_4" value="pos"></td>
+                </tr>
+                <tr>
+                  <td>Activities are aligned with content</td>
+                  <td class="text-center"><input type="radio" name="rate_5" value="neg"></td>
+                  <td class="text-center"><input id="rate_5_neu" type="radio" name="rate_5" value="neu" checked></td>
+                  <td class="text-center"><input type="radio" name="rate_5" value="pos"></td>
+                </tr>
+              </tbody>
+            </table>
 
             <div class="form-group has-feedback">
               <label class="control-label">Feedback Details:</label>
@@ -256,7 +299,7 @@ session_start();
               <div class="rate-button rate-negative">
                 <span class="rate-icon fa fa-frown-o"></span>
                 <br>
-                <span>Negative</span>
+                <span>Sad</span>
               </div>
               <div class="rate-button rate-neutral active">
                 <span class="rate-icon fa fa-meh-o"></span>
@@ -266,7 +309,7 @@ session_start();
               <div class="rate-button rate-positive">
                 <span class="rate-icon fa fa-smile-o"></span>
                 <br>
-                <span>Positive</span>
+                <span>Happy</span>
               </div>
             </div>
 

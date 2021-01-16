@@ -121,7 +121,7 @@ hr {
 
 .rate-button>.rate-icon {
   font-size: 72px;
-  color: #B0BEC5;
+  color: #eceff1;
 }
 
 .rate-button:hover {
@@ -142,12 +142,12 @@ hr {
 .rate-neutral.active>.rate-icon,
 .rate-neutral.active,
 .rate-neutral:active {
-  color: #64b5f6;
+  color: #90a4ae;
 }
 
 .rate-neutral:hover,
 .rate-neutral:hover>.rate-icon {
-  color: #2196f3;
+  color: #62757f;
 }
 
 .rate-positive.active>.rate-icon,

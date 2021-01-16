@@ -13,7 +13,7 @@ if (
   $userId = $_GET['user_id'];
   $classroomId = $_GET['classroom_id'];
 
-  $command = "SELECT CONCAT(u.first_name, ' ', u.middle_name, ' ', u.last_name), u.profile_picture, u.username, cr.class, cr.subject, cr.date_end, cr.description, (SELECT 1 FROM classrooms_reviews WHERE classroom_id = ? AND student_id = ?) AS has_review FROM classrooms AS cr LEFT JOIN users AS u ON cr.teacher_id = u.id WHERE cr.id = ?";
+  $command = "SELECT CONCAT(u.first_name, ' ', u.middle_name, ' ', u.last_name), u.profile_picture, u.username, cr.class, cr.subject, cr.date_end, cr.description, cr.is_review_open, (SELECT 1 FROM classrooms_reviews WHERE classroom_id = ? AND student_id = ?) AS has_review FROM classrooms AS cr LEFT JOIN users AS u ON cr.teacher_id = u.id WHERE cr.id = ?";
 
   $statement = $connection->prepare($command);
   $statement->bind_param(
@@ -32,6 +32,7 @@ if (
     $subjectName,
     $dateEnd,
     $description,
+    $isReviewOpen,
     $hasReview
   );
 
@@ -45,6 +46,7 @@ if (
     $data['date_end'] = date('M d, Y', strtotime($dateEnd));
     $data['date_end_modal'] = date('m/d/Y', strtotime($dateEnd));
     $data['description'] = $description;
+    $data['is_review_open'] = $isReviewOpen;
     $data['has_review'] = $hasReview;
 
     $response = [

@@ -69,6 +69,11 @@ function updateClassroom(
 function rateInstructor(
   usrId,
   crId,
+  rate1,
+  rate2,
+  rate3,
+  rate4,
+  rate5,
   content,
   rateValue
 ) {
@@ -77,6 +82,11 @@ function rateInstructor(
 
   formData.append('user_id', usrId);
   formData.append('classroom_id', crId);
+  formData.append('rate_1', rate1);
+  formData.append('rate_2', rate2);
+  formData.append('rate_3', rate3);
+  formData.append('rate_4', rate4);
+  formData.append('rate_5', rate5);
   formData.append('content', content);
   formData.append('rate_value', rateValue);
 

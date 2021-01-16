@@ -230,6 +230,11 @@ function rateMaterial(
   usrId,
   mtrlId,
   mtrlName,
+  rate1,
+  rate2,
+  rate3,
+  rate4,
+  rate5,
   content,
   rateValue,
   anonymous
@@ -239,6 +244,11 @@ function rateMaterial(
 
   formData.append('user_id', usrId);
   formData.append('materials_id', mtrlId);
+  formData.append('rate_1', rate1);
+  formData.append('rate_2', rate2);
+  formData.append('rate_3', rate3);
+  formData.append('rate_4', rate4);
+  formData.append('rate_5', rate5);
   formData.append('content', content);
   formData.append('rate_value', rateValue);
   formData.append('anonymous', anonymous ? 1 : 0);
