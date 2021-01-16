@@ -389,13 +389,36 @@ session_start();
 
         <div class="modal-body modal-body-full">
 
-          <h4>What is Lorem Ipsum?</h4>
+          <h4>How to write a good feedback:</h4>
+
+          <br>
+
+          <p><strong>DO</strong></p>
           <ol>
-            <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</li>
-            <li>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</li>
-            <li>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</li>
-            <li>It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</li>
+            <li>Focus only on the specific Module.</li>
+            <li>Base the evaluation on your personal experience.</li>
+            <li>Tell us &quot;why&quot; you feel a certain way about it.</li>
           </ol>
+
+          <br>
+
+          <p><strong>DON'T</strong></p>
+          <ol>
+            <li>Include anything irrelevant to the Module&apos;s design.</li>
+            <li>Use vulgar, obscene, or discriminatory language.</li>
+            <li>Share your classmate&apos;s thoughts or inputs.</li>
+          </ol>
+
+          <br>
+
+          <p><em>Examples:</em></p>
+          <ol>
+            <li>This module is good; the instructions are clear.</li>
+            <li>I have no comment on this module.</li>
+            <li>This module is bad; please give more examples.</li>
+          </ol>
+
+          <br>
 
           <div class="text-center">
             <button class="btn btn-success" type="button" data-dismiss="modal">Got it!</button>
