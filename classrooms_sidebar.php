@@ -34,8 +34,8 @@
     <span class="badge"></span>
   </a>
 
-  <a id="nav_my_progress" href="classrooms_my_progress.php" style="display:none;">
-    My Progress <span class="fa fa-line-chart"></span>
+  <a id="nav_my_progress" href="classrooms_my_progress.php">
+    Reports <span class="fa fa-line-chart"></span>
   </a>
 
 </div>

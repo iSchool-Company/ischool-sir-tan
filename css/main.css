@@ -135,7 +135,9 @@ hr {
 }
 
 .rate-negative:hover,
-.rate-negative:hover>.rate-icon {
+.rate-negative:hover>.rate-icon,
+.rate-negative.static,
+.rate-negative.static>.rate-icon {
   color: #f44336;
 }
 
@@ -146,7 +148,9 @@ hr {
 }
 
 .rate-neutral:hover,
-.rate-neutral:hover>.rate-icon {
+.rate-neutral:hover>.rate-icon,
+.rate-neutral.static,
+.rate-neutral.static>.rate-icon {
   color: #62757f;
 }
 
@@ -157,7 +161,9 @@ hr {
 }
 
 .rate-positive:hover,
-.rate-positive:hover>.rate-icon {
+.rate-positive:hover>.rate-icon,
+.rate-positive.static,
+.rate-positive.static>.rate-icon {
   color: #4caf50;
 }
 

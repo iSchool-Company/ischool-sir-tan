@@ -6,204 +6,60 @@ session_start();
 
 <head>
 
-  <title>iSchool | My Progress</title>
+  <title>iSchool | Reports</title>
 
   <?php
   require 'meta.php';
   ?>
 
   <style>
-    h4 {
-      margin-top: 0;
+    .rate-picker {
+      width: calc(90% - 350px);
+      margin-left: 350px;
     }
 
-    .timeline-left {
-      margin-right: 46%;
-      padding-right: 15px;
-      padding-left: 15px;
+    .rate-button:hover {
+      cursor: default;
     }
 
-    .timeline-right {
-      margin-left: 46%;
-      padding-right: 15px;
-      padding-left: 15px;
+    .rate-button>.rate-icon {
+      font-size: 48px;
     }
 
-    .timeline-left::before,
-    .timeline-right::before {
-      top: 53px;
-      bottom: 0;
-      position: absolute;
-      content: " ";
-      width: 3px;
-      background-color: #008f95;
-      left: 50%;
-      margin-bottom: 1.7%;
-      box-shadow: 1px 1px 5px grey;
+    .rate-count {
+      display: inline-block;
+      margin: 0;
     }
 
-    .img-circle-left {
-      height: 60px;
-      width: 60px;
-      color: #f7f7f7;
-      position: relative;
-      background-color: #eb6e80;
-      border-radius: 50%;
-      z-index: 1;
-      clear: both;
-      float: right;
-      box-shadow: 5px 5px 5px grey;
+    .criteria-table {
+      width: 90%;
     }
 
-    .img-circle-right {
-      height: 60px;
-      width: 60px;
-      color: #f7f7f7;
-      position: relative;
-      background-color: #e9b000;
-      border-radius: 50%;
-      clear: both;
-      z-index: 1;
-      float: left;
-      box-shadow: 5px 5px 5px grey;
+    .criteria-table td {
+      padding: 10px;
     }
 
-    .icon-left {
-      font-size: 35px;
-      position: absolute;
-      left: 14px;
-      top: 12px;
+    .criteria-table .progress {
+      margin: 0;
     }
 
-    .icon-right {
-      font-size: 35px;
-      position: absolute;
-      left: 12px;
-      top: 12px;
+    .progress-bar-negative {
+      background-color: #f44336 !important;
     }
 
-    .progress-left {
-      float: right;
-      border: 1px solid #008f95;
-      border-radius: 25px;
-      padding: 20px;
-      position: relative;
-      max-width: 85%;
-      margin-bottom: 50px;
-      margin-right: 25px;
-      box-shadow: 2px 2px 5px grey;
+    .progress-bar-neutral {
+      background-color: #62757f !important;
     }
 
-    .progress-right {
-      float: left;
-      border: 1px solid #008f95;
-      border-radius: 25px;
-      padding: 20px;
-      position: relative;
-      max-width: 85%;
-      margin-bottom: 50px;
-      margin-left: 25px;
-      box-shadow: 2px 2px 5px grey;
+    .progress-bar-positive {
+      background-color: #4caf50 !important;
     }
 
-    .progress-left::before {
-      position: absolute;
-      top: 20px;
-      right: -15px;
-      border-top: 15px solid transparent;
-      border-left: 15px solid #008f95;
-      border-bottom: 15px solid transparent;
-      content: " ";
-    }
-
-    .progress-right::before {
-      position: absolute;
-      top: 20px;
-      left: -15px;
-      border-top: 15px solid transparent;
-      border-right: 15px solid #008f95;
-      border-bottom: 15px solid transparent;
-      content: " ";
-    }
-
-    @media screen and (max-width: 768px) {
-
-      .timeline-left {
-        margin-right: 0;
-        padding-right: 0;
-        padding-left: 0;
-      }
-
-      .timeline-right {
-        margin-left: 0;
-        padding-right: 0;
-        padding-left: 0;
-      }
-
-      .timeline-left::before,
-      .timeline-right::before {
-        top: 70px;
-        left: 40px;
-        margin-bottom: 0;
-        box-shadow: 1px 1px 4px grey;
-      }
-
-      .img-circle-left {
-        height: 40px;
-        width: 40px;
-        top: 15px;
-        float: left;
-        margin-left: 15px;
-        box-shadow: 1px 1px 4px grey;
-      }
-
-      .img-circle-right {
-        height: 40px;
-        width: 40px;
-        top: 15px;
-        float: left;
-        margin-left: 15px;
-        box-shadow: 1px 1px 4px grey;
-      }
-
-      .icon-left {
-        font-size: 25px;
-        left: 9px;
-        top: 7px;
-      }
-
-      .icon-right {
-        font-size: 25px;
-        left: 7px;
-        top: 8px;
-      }
-
-      .progress-left {
-        float: left;
-        padding: 20px;
-        left: 20px;
-        max-width: 70%;
-        margin-bottom: 20px;
-        margin-right: 0;
-        box-shadow: 1px 1px 4px grey;
-      }
-
-      .progress-right {
-        float: left;
-        padding: 20px;
-        left: 20px;
-        max-width: 70%;
-        margin-bottom: 20px;
-        margin-left: 0;
-        box-shadow: 1px 1px 4px grey;
-      }
-
-      .progress-left::before {
-        right: 100%;
-        border-left: 15px solid transparent;
-        border-right: 15px solid #008f95;
-      }
-
+    .legend-item {
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      border-radius: 5px;
     }
   </style>
 
@@ -235,60 +91,307 @@ session_start();
             <a id="classroom_name" class="text-main-green" href="classrooms_subject_overview.php"></a>
           </li>
           <li class="active">
-            My Progress
+            Reports
           </li>
         </ul>
 
         <div class="panel panel-default">
           <div class="panel-body">
 
-            <div id="progress_panel">
+            <ul class="nav nav-tabs" style="display:block;">
+
+              <li>
+                <a>
+                  <span class="text-main-black"><b>Generate by:</b></span>
+                </a>
+              </li>
+
+              <li class="active" id="per_module">
+                <a data-toggle="tab" href="#per_module_content">
+                  <span class="text-main-black">Per Module</span>
+                </a>
+              </li>
+
+              <li id="summary">
+                <a data-toggle="tab" href="#summary_content">
+                  <span class="text-main-black">Summary for Modules</span>
+                </a>
+              </li>
+
+              <li id="detailed">
+                <a data-toggle="tab" href="#detailed_content">
+                  <span class="text-main-black">Student Feedbacks</span>
+                </a>
+              </li>
+
+            </ul>
+
+            <div class="tab-content">
+
+              <div id="per_module_content" class="tab-pane fade in active">
+
+                <div style="margin-top:20px;">
+
+                  <form id="report_form" class="form-horizontal" role="form" autocomplete="off">
+
+                    <div class="row">
+
+                      <div class="col-sm-6">
+                        <div class="form-group has-feedback">
+                          <label class="col-sm-5 control-label">Choose a Material:</label>
+                          <div class="col-sm-7">
+                            <select class="form-control" name="materials"></select>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+
+                  </form>
+
+                  <hr>
+
+                  <div class="row">
+
+                    <div class="col-sm-6">
+                      <p><b>Material Name:</b> <span id="detailed_material_name"></span></p>
+                    </div>
+
+                    <div class="col-sm-6">
+                      <p><b>Total Respondents:</b> <b id="detailed_respondents_count">0</b> out of <span id="detailed_total_count">0</span> students</p>
+                    </div>
+
+                  </div>
+
+                  <hr>
+
+                  <h4><b>Overall Rate for this Material:</b></h4>
+
+                  <div>
+                    <div class="rate-picker">
+                      <div class="row">
+                        <div class="col-xs-4">
+                          <div class="rate-button rate-negative static">
+                            <span class="rate-icon fa fa-frown-o"></span>
+                            <br>
+                            <h3 class="rate-count"><b id="detailed_rate_neg">0</b></h3>
+                          </div>
+                        </div>
+                        <div class="col-xs-4">
+                          <div class="rate-button rate-neutral static">
+                            <span class="rate-icon fa fa-meh-o"></span>
+                            <br>
+                            <h3 class="rate-count"><b id="detailed_rate_neu">0</b></h3>
+                          </div>
+                        </div>
+                        <div class="col-xs-4">
+                          <div class="rate-button rate-positive static">
+                            <span class="rate-icon fa fa-smile-o"></span>
+                            <br>
+                            <h3 class="rate-count"><b id="detailed_rate_pos">0</b></h3>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <hr>
+
+                  <h4><b>Rating per Category for this Material:</b></h4>
+
+                  <table class="criteria-table">
+
+                    <tbody>
+
+                      <tr>
+                        <td style="width:350px;">Objectives are clearly stated</td>
+                        <td>
+                          <div class="progress">
+                            <div id="detailed_rate_1_neg" class="progress-bar progress-bar-negative" role="progressbar" style="width:0%"></div>
+                            <div id="detailed_rate_1_neu" class="progress-bar progress-bar-neutral" role="progressbar" style="width:0%"></div>
+                            <div id="detailed_rate_1_pos" class="progress-bar progress-bar-positive" role="progressbar" style="width:0%"></div>
+                          </div>
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td style="width:350px;">Content is aligned with course</td>
+                        <td>
+                          <div class="progress">
+                            <div id="detailed_rate_2_neg" class="progress-bar progress-bar-negative" role="progressbar" style="width:0%"></div>
+                            <div id="detailed_rate_2_neu" class="progress-bar progress-bar-neutral" role="progressbar" style="width:0%"></div>
+                            <div id="detailed_rate_2_pos" class="progress-bar progress-bar-positive" role="progressbar" style="width:0%"></div>
+                          </div>
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td style="width:350px;">Content is well organized</td>
+                        <td>
+                          <div class="progress">
+                            <div id="detailed_rate_3_neg" class="progress-bar progress-bar-negative" role="progressbar" style="width:0%"></div>
+                            <div id="detailed_rate_3_neu" class="progress-bar progress-bar-neutral" role="progressbar" style="width:0%"></div>
+                            <div id="detailed_rate_3_pos" class="progress-bar progress-bar-positive" role="progressbar" style="width:0%"></div>
+                          </div>
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td style="width:350px;">Instructions are clearly stated</td>
+                        <td>
+                          <div class="progress">
+                            <div id="detailed_rate_4_neg" class="progress-bar progress-bar-negative" role="progressbar" style="width:0%"></div>
+                            <div id="detailed_rate_4_neu" class="progress-bar progress-bar-neutral" role="progressbar" style="width:0%"></div>
+                            <div id="detailed_rate_4_pos" class="progress-bar progress-bar-positive" role="progressbar" style="width:0%"></div>
+                          </div>
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td style="width:350px;">Activities are aligned with content</td>
+                        <td>
+                          <div class="progress">
+                            <div id="detailed_rate_5_neg" class="progress-bar progress-bar-negative" role="progressbar" style="width:0%"></div>
+                            <div id="detailed_rate_5_neu" class="progress-bar progress-bar-neutral" role="progressbar" style="width:0%"></div>
+                            <div id="detailed_rate_5_pos" class="progress-bar progress-bar-positive" role="progressbar" style="width:0%"></div>
+                          </div>
+                        </td>
+                      </tr>
+
+                    </tbody>
+
+                  </table>
+
+                  <hr>
+
+                  <h4><b>Sentiment Analysis Based on Feedback:</b></h4>
+
+                  <table class="criteria-table">
+
+                    <tbody>
+
+                      <tr>
+                        <td style="width:350px;">Negative</td>
+                        <td>
+                          <div id="detailed_sentiment_analysis_neg" class="progress" style="width:0%">
+                            <div class="progress-bar progress-bar-negative" role="progressbar" style="width:100%"></div>
+                          </div>
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td style="width:350px;">Neutral</td>
+                        <td>
+                          <div id="detailed_sentiment_analysis_neu" class="progress" style="width:0%">
+                            <div class="progress-bar progress-bar-neutral" role="progressbar" style="width:100%"></div>
+                          </div>
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <td style="width:350px;">Positive</td>
+                        <td>
+                          <div id="detailed_sentiment_analysis_pos" class="progress" style="width:0%">
+                            <div class="progress-bar progress-bar-positive" role="progressbar" style="width:100%"></div>
+                          </div>
+                        </td>
+                      </tr>
+
+                    </tbody>
+
+                  </table>
+
+                  <hr>
+
+                  <p class="text-right" style="width:90%;">
+                    Legends:
+                    &nbsp;
+                    <span class="legend-item progress-bar-negative"></span>
+                    Negative
+                    &nbsp;
+                    <span class="legend-item progress-bar-neutral"></span>
+                    Neutral
+                    &nbsp;
+                    <span class="legend-item progress-bar-positive"></span>
+                    Positive
+                  </p>
+
+                </div>
+
+              </div>
+
+              <div id="summary_content" class="tab-pane fade in">
+
+                <div style="margin-top:20px;">
+                </div>
+
+              </div>
+
+              <div id="detailed_content" class="tab-pane fade in">
+
+                <div style="margin-top:20px;">
+                </div>
+
+              </div>
+
             </div>
 
+            <div class="pull-right">
+              <button id="detailed_print_button" class="btn btn-success" type="button">
+                <span class="fa fa-print"></span> Print
+              </button>
+            </div>
+            <div class="clearfix"></div>
+
           </div>
+
         </div>
 
       </div>
 
     </div>
 
-  </div>
+    <!-- Main Variables -->
+    <script>
+      var classroomId = <?php echo isset($_SESSION['classroom_id']) ? $_SESSION['classroom_id'] : '0' ?>;
+      var myType = '<?php echo isset($_SESSION['type']) ? $_SESSION['type'] : '' ?>';
+      var myId = <?php echo isset($_SESSION['id']) ? $_SESSION['id'] : '0' ?>;
+      var myLogInId = <?php echo isset($_SESSION['log_in_id']) ? $_SESSION['log_in_id'] : '0' ?>;
+      var crStatus = '';
 
-  <!-- Main Variables -->
-  <script>
-    var classroomId = <?php echo isset($_SESSION['classroom_id']) ? $_SESSION['classroom_id'] : '0' ?>;
-    var myType = '<?php echo isset($_SESSION['type']) ? $_SESSION['type'] : '' ?>';
-    var myId = <?php echo isset($_SESSION['id']) ? $_SESSION['id'] : '0' ?>;
-    var myLogInId = <?php echo isset($_SESSION['log_in_id']) ? $_SESSION['log_in_id'] : '0' ?>;
-
-    $(document).ready(function() {
-      $('#back').hover(function() {
-        $('.breadcrumb [href="my_classrooms.php"]').css('z-index', '6');
-      }, function() {
-        setTimeout(function() {
-          $('.breadcrumb [href="my_classrooms.php"]').css('z-index', '8');
-        }, 300);
+      $(document).ready(function() {
+        $('#back').hover(function() {
+          $('.breadcrumb [href="my_classrooms.php"]').css('z-index', '6');
+        }, function() {
+          setTimeout(function() {
+            $('.breadcrumb [href="my_classrooms.php"]').css('z-index', '8');
+          }, 300);
+        });
       });
-    });
-  </script>
+    </script>
 
-  <!-- Main Workers -->
-  <script src="js/main_routing.js"></script>
-  <script src="js/log_in_updater.js"></script>
-  <script src="js/nav_manipulator.js"></script>
+    <!-- Main Workers -->
+    <script src="js/main_routing.js"></script>
+    <script src="js/log_in_updater.js"></script>
+    <script src="js/nav_manipulator.js"></script>
 
-  <!-- Main Notification Worker -->
-  <script src="js/notification/events/init.js"></script>
-  <script src="js/notification/operations/retrieval.js"></script>
+    <!-- Main Notification Worker -->
+    <script src="js/notification/events/init.js"></script>
+    <script src="js/notification/operations/retrieval.js"></script>
 
-  <!-- Classroom Workers -->
-  <script src="js/classroom_notification_manager.js"></script>
-  <script src="js/classroom_breadcrumb_manager.js"></script>
-  <script src="js/my_classroom_display_manager.js"></script>
+    <!-- Classroom Workers -->
+    <script src="js/classroom_notification_manager.js"></script>
+    <script src="js/classroom_breadcrumb_manager.js"></script>
+    <script src="js/my_classroom_display_manager.js"></script>
 
-  <!-- Materials Workers -->
-  <script src="js/progress/nodes.js"></script>
-  <script src="js/progress/display_manager.js"></script>
+    <!-- Materials Workers -->
+    <script src="js/progress/nodes.js"></script>
+    <script src="js/progress/displays.js"></script>
+    <script src="js/progress/resets.js"></script>
+    <script src="js/progress/display_manager.js"></script>
+    <script src="js/progress/operations/retrieval.js"></script>
+    <script src="js/progress/events/init.js"></script>
+    <script src="js/progress/events/detailed_report.js"></script>
 
 </body>
 

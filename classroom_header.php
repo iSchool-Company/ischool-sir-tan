@@ -151,7 +151,7 @@
           </a>
         </li>
 
-        <li id="nav_my_progress_2" style="display:none;">
+        <li id="nav_my_progress_2">
           <a class="sidebar-menu" href="classrooms_my_progress.php">
             <span class="fa fa-line-chart"></span> My Progress
             <span class="badge"></span>
