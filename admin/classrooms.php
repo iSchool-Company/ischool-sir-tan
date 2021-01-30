@@ -15,6 +15,7 @@ session_start();
   <link href="../../frameworks/Bootstrap 3.3.7/css/bootstrap.min.css" rel="stylesheet">
   <script src="../../frameworks/JQuery 3.1.1/jquery.min.js"></script>
   <script src="../../frameworks/Bootstrap 3.3.7/js/bootstrap.min.js"></script>
+  <script src="../../frameworks/AngularJS v1.8.2/angular.min.js"></script>
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/navbar.css">
   <link rel="stylesheet" href="css/sidebar.css">
@@ -22,7 +23,7 @@ session_start();
 
 </head>
 
-<body>
+<body ng-app="mainApp" ng-controller="classroomsCtrl" ng-cloak>
 
   <?php
 
@@ -60,57 +61,40 @@ session_start();
 
             <div class="panel-body">
 
-              <div class="row">
-                <div class="col-md-1">
-                  <h4>ID</h4>
-                </div>
+              <table class="table table-bordered table-condensed">
 
-                <div class="col-md-2">
-                  <h4>Instructor</h4>
-                </div>
+                <thead>
+                  <tr>
+                    <td>ID</td>
+                    <td>Instructor</td>
+                    <td>Class Name</td>
+                    <td>Subject Code</td>
+                    <td>End Date</td>
+                    <td>Classroom Description</td>
+                    <td style="width: 150px"></td>
+                  </tr>
+                </thead>
 
-                <div class="col-md-2">
-                  <h4>Class Name</h4>
-                </div>
+                <tbody id="classrooms_body">
+                  <tr ng-repeat="c in classrooms">
+                    <td>{{ c.id }}</td>
+                    <td>{{ c.instructor }}</td>
+                    <td>{{ c.className }}</td>
+                    <td>{{ c.subjectName }}</td>
+                    <td>{{ c.dateEnd }}</td>
+                    <td>{{ c.description }}</td>
+                    <td class="text-center">
+                      <button class="btn btn-danger btn-sm" ng-if="c.isReviewOpen" ng-click="setForEval(c.id, 0)">
+                        Unset for Evaluation
+                      </button>
+                      <button class="btn btn-success btn-sm" ng-if="!c.isReviewOpen" ng-click="setForEval(c.id, 1)">
+                        Set for Evaluation
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
 
-                <div class="col-md-2">
-                  <h4>Subject Code</h4>
-                </div>
-
-                <div class="col-md-2">
-                  <h4>End Date</h4>
-                </div>
-
-                <div class="col-md-3">
-                  <h4>Classroom Description</h4>
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="col-md-1">
-                  <p>1</p>
-                </div>
-
-                <div class="col-md-2">
-                  <p>Randy Otero</p>
-                </div>
-
-                <div class="col-md-2">
-                  <p>BSCS4A</p>
-                </div>
-
-                <div class="col-md-2">
-                  <p>Cisco</p>
-                </div>
-
-                <div class="col-md-2">
-                  <p>Oct 31, 2017</p>
-                </div>
-
-                <div class="col-md-3">
-                  <p>Course Syllabus</p>
-                </div>
-              </div>
+              </table>
 
             </div>
 
@@ -120,16 +104,6 @@ session_start();
 
       </div>
 
-      <ul class="pagination pull-right">
-        <li id="pg_previous"><a href="#">Previous</a></li>
-        <li id="pg_one" value="1"><a href="#">1</a></li>
-        <li id="pg_two" value="2"><a href="#">2</a></li>
-        <li id="pg_three" value="3"><a href="#">3</a></li>
-        <li id="pg_four" value="4"><a href="#">4</a></li>
-        <li id="pg_five" value="5"><a href="#">5</a></li>
-        <li id="pg_next"><a href="#">Next</a></li>
-      </ul>
-
     </div>
 
   </div>
@@ -137,6 +111,52 @@ session_start();
   <script>
     $(document).ready(function() {
       $('[data-toggle="tooltip"]').tooltip();
+    });
+  </script>
+
+  <script>
+    var myId = <?php echo isset($_SESSION['id']) ? $_SESSION['id'] : '0' ?>;
+  </script>
+
+  <script src="js/nav_manipulator.js"></script>
+  <script src="js/main_routing.js"></script>
+
+  <script>
+    var app = angular.module('mainApp', []);
+
+    app.controller('classroomsCtrl', function($scope, $http) {
+
+      $scope.retrieveClassrooms = () => {
+
+        $http.get('database/classrooms/retrieve/display.php')
+          .then(function(response) {
+
+            let data = response.data;
+
+            if (data.response === 'found') {
+              $scope.classrooms = data.classrooms;
+            }
+          });
+      };
+      $scope.setForEval = (classroomId, isSet) => {
+
+        $http({
+          method: 'POST',
+          url: 'database/classrooms/set_for_eval.php',
+          data: $.param({
+            classroomId: classroomId,
+            isSet: isSet
+          }),
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+          }
+        }).then(function(response) {
+          console.log(response);
+          $scope.retrieveClassrooms();
+        })
+      };
+
+      $scope.retrieveClassrooms();
     });
   </script>
 

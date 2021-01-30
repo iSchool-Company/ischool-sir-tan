@@ -6,11 +6,11 @@
       <span class="fa fa-home"></span>
     </a>
 
-    <a id="nav_news" class="list-group-item" href="news.php" title="News" data-toggle="tooltip" data-placement="right">
+    <a id="nav_news" class="list-group-item" href="news.php" title="News" data-toggle="tooltip" data-placement="right" style="display:none;">
       <span class="fa fa-newspaper-o"></span>
     </a>
 
-    <a id="nav_admins" class="list-group-item" href="admins.php" title="Admins" data-toggle="tooltip" data-placement="right">
+    <a id="nav_admins" class="list-group-item" href="admins.php" title="Admins" data-toggle="tooltip" data-placement="right" style="display:none;">
       <span class="fa fa-users"></span>
     </a>
 
@@ -18,7 +18,7 @@
       <span class="fa fa-users"></span>
     </a>
 
-    <a id="nav_classrooms" class="list-group-item" href="classrooms.php" title="Classrooms" data-toggle="tooltip" data-placement="right" style="display:none;">
+    <a id="nav_classrooms" class="list-group-item" href="classrooms.php" title="Classrooms" data-toggle="tooltip" data-placement="right">
       <span class="fa fa-university"></span>
     </a>
 
@@ -32,6 +32,10 @@
 
     <a id="nav_activity_log" class="list-group-item" href="activity_log.php" title="Activity Log" data-toggle="tooltip" data-placement="right" style="display:none;">
       <span class="fa fa-file-text-o"></span>
+    </a>
+
+    <a id="nav_reports" class="list-group-item" href="reports.php" title="Reports" data-toggle="tooltip" data-placement="right">
+      <span class="fa fa-line-chart"></span>
     </a>
 
   </div>
