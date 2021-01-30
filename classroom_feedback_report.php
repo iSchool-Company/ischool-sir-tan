@@ -11,35 +11,14 @@ session_start();
   <?php
   require 'meta.php';
   ?>
-  <link rel="stylesheet" href="../frameworks/Chartist 0.11.0/chartist.min.css">
-  <script src="../frameworks/Chartist 0.11.0/chartist.min.js"></script>
 
-  <style>
+  <script src="../frameworks/html2canvas 1.0.0-rc.7/html2canvas.min.js"></script>
+
+  <style media="all">
     #main {
       width: 900px;
       margin: auto;
       margin-top: 50px;
-    }
-
-    .ct-series-a .ct-bar,
-    .ct-series-a .ct-line,
-    .ct-series-a .ct-point,
-    .ct-series-a .ct-slice-donut {
-      stroke: #f44336;
-    }
-
-    .ct-series-b .ct-bar,
-    .ct-series-b .ct-line,
-    .ct-series-b .ct-point,
-    .ct-series-b .ct-slice-donut {
-      stroke: #62757f;
-    }
-
-    .ct-series-c .ct-bar,
-    .ct-series-c .ct-line,
-    .ct-series-c .ct-point,
-    .ct-series-c .ct-slice-donut {
-      stroke: #4caf50;
     }
   </style>
 
@@ -58,14 +37,36 @@ session_start();
       <hr>
       <br>
 
-      <br>
-      <br>
-      <div id="summary_bar"></div>
-      <br>
-      <br>
-      <div id="summary_line"></div>
-      <br>
-      <br>
+      <div class="row">
+
+        <div class="col-sm-6">
+          <p><b>Material Name:</b> <span id="feedback_material_name"></span></p>
+        </div>
+
+        <div class="col-sm-6">
+          <p><b>Total Respondents:</b> <b id="feedback_respondents_count">0</b> out of <span id="feedback_total_count">0</span> students</p>
+        </div>
+
+      </div>
+
+      <hr>
+
+      <table class="table table-bordered table-condensed">
+        <tbody>
+          <tr>
+            <td style="width: 200px">Sad</td>
+            <td id="negative_feedbacks"></td>
+          </tr>
+          <tr>
+            <td>Neutral</td>
+            <td id="neutral_feedbacks"></td>
+          </tr>
+          <tr>
+            <td>Happy</td>
+            <td id="positive_feedbacks"></td>
+          </tr>
+        </tbody>
+      </table>
 
     </div>
   </div>
@@ -88,18 +89,9 @@ session_start();
         }, 300);
       });
 
-      let classroomId = decodeURIComponent($.urlParam('classroom_id'));
+      let materialId = decodeURIComponent($.urlParam('material_id'));
 
-      retrieveSummarizedReview(classroomId, function() {
-
-        var data = {
-          labels: chartLabels,
-          series: chartSeries
-        };
-
-        // Creation Proper
-        new Chartist.Bar('#summary_bar', data, barChartOptions, responsiveOptions);
-        new Chartist.Line('#summary_line', data, lineChartOptions, responsiveOptions);
+      retrieveFeedbacks(materialId, classroomId, () => {
 
         setTimeout(function() {
           window.print();
@@ -111,33 +103,6 @@ session_start();
       var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
       return results[1] || 0;
     }
-
-    const barChartOptions = {
-      seriesBarDistance: 10,
-      fullWidth: true,
-      chartPadding: {
-        left: 50,
-        right: 50
-      }
-    };
-
-    const lineChartOptions = {
-      fullWidth: true,
-      chartPadding: {
-        left: 50,
-        right: 50
-      }
-    };
-
-    const responsiveOptions = [
-      ['screen and (max-width: 640px)', {
-        axisX: {
-          labelInterpolationFnc: function(value) {
-            return value[0];
-          }
-        }
-      }]
-    ];
   </script>
 
   <!-- Main Workers -->
@@ -146,8 +111,8 @@ session_start();
   <script src="js/nav_manipulator.js"></script>
 
   <!-- Materials Workers -->
-  <script src="js/progress/variables.js"></script>
   <script src="js/progress/displays.js"></script>
+  <script src="js/progress/nodes.js"></script>
   <script src="js/progress/operations/retrieval.js"></script>
 
 </body>

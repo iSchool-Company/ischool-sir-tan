@@ -17,40 +17,10 @@ if (
     'name' => '',
     'respondents' => 0,
     'total' => 0,
-    'overall_rate' => [
-      'neg' => 0,
-      'neu' => 0,
-      'pos' => 0
-    ],
-    'rate_1' => [
-      'neg' => 0,
-      'neu' => 0,
-      'pos' => 0
-    ],
-    'rate_2' => [
-      'neg' => 0,
-      'neu' => 0,
-      'pos' => 0
-    ],
-    'rate_3' => [
-      'neg' => 0,
-      'neu' => 0,
-      'pos' => 0
-    ],
-    'rate_4' => [
-      'neg' => 0,
-      'neu' => 0,
-      'pos' => 0
-    ],
-    'rate_5' => [
-      'neg' => 0,
-      'neu' => 0,
-      'pos' => 0
-    ],
-    'sentiment_analysis' => [
-      'neg' => 0,
-      'neu' => 0,
-      'pos' => 0
+    'feedbacks' => [
+      'neg' => [],
+      'neu' => [],
+      'pos' => []
     ]
   ];
 
@@ -79,21 +49,19 @@ if (
 
   $statement->close();
 
-  $command = 'SELECT mr.rate, mr.rate_1, mr.rate_2, mr.rate_3, mr.rate_4, mr.rate_5, mr.content FROM materials AS m INNER JOIN materials_reviews AS mr ON m.id = mr.material_id WHERE m.id = ?';
+  $command = 'SELECT mr.content, mr.anonymous, u.username, u.first_name, u.middle_name FROM materials AS m INNER JOIN materials_reviews AS mr ON m.id = mr.material_id LEFT JOIN users AS u ON mr.student_id = u.id WHERE m.id = ?';
   $statement = $connection->prepare($command);
   $statement->bind_param('i', $materialsId);
   $statement->execute();
   $statement->bind_result(
-    $rate,
-    $rate_1,
-    $rate_2,
-    $rate_3,
-    $rate_4,
-    $rate_5,
-    $content
+    $content,
+    $anonymous,
+    $username,
+    $firstName,
+    $lastName
   );
 
-  $fileName = "detailed-$classroomId-$materialsId.txt";
+  $fileName = "feedback-$classroomId-$materialsId.txt";
   $fileNameDir = "$pythonDir$fileName";
 
   $file = fopen($fileNameDir, 'w');
@@ -101,12 +69,13 @@ if (
   while ($statement->fetch()) {
 
     $data['respondents']++;
-    $data['overall_rate'][$rate]++;
-    $data['rate_1'][$rate_1]++;
-    $data['rate_2'][$rate_2]++;
-    $data['rate_3'][$rate_3]++;
-    $data['rate_4'][$rate_4]++;
-    $data['rate_5'][$rate_5]++;
+
+    $displayName = $anonymous == 1 ? 'Anonymous' : "$firstName $lastName (@$username)";
+
+    $feedback = [
+      'displayName' => $displayName,
+      'content' => $content
+    ];
 
     file_put_contents($fileNameDir, $content);
 
@@ -119,11 +88,11 @@ if (
     $compound = $scoreJSON['compound'];
 
     if ($compound >= 0.2) {
-      $data['sentiment_analysis']['pos']++;
+      $data['feedbacks']['pos'][] = $feedback;
     } else if ($compound <= -0.2) {
-      $data['sentiment_analysis']['neg']++;
+      $data['feedbacks']['neg'][] = $feedback;
     } else {
-      $data['sentiment_analysis']['neu']++;
+      $data['feedbacks']['neu'][] = $feedback;
     }
   }
 

@@ -1,6 +1,6 @@
-function showMaterials(materials) {
+function showMaterials(materials, formName) {
 
-  var materialSelect = $('#report_form [name="materials"]');
+  var materialSelect = $('#' + formName + ' [name="materials"]');
   var length = materials.length;
 
   materialSelect.empty();
@@ -82,5 +82,37 @@ function showSummarizedReport(data) {
     chartSeries[0].push(mat.neg);
     chartSeries[1].push(mat.neu);
     chartSeries[2].push(mat.pos);
+  });
+}
+
+function showFeedbacks(data) {
+
+  $('#feedback_material_name').text(data.name);
+
+  let respondents = data.respondents;
+  let total = data.total;
+
+  let respondentsCount = $('#feedback_respondents_count');
+  respondentsCount.text(respondents);
+  respondentsCount.addClass(respondents >= (total / 2) ? 'text-success' : 'text-danger');
+
+  $('#feedback_total_count').text(data.total);
+
+  showFeedbackContent('negative_feedbacks', data.feedbacks.neg);
+  showFeedbackContent('neutral_feedbacks', data.feedbacks.neu);
+  showFeedbackContent('positive_feedbacks', data.feedbacks.pos);
+}
+
+function showFeedbackContent(id, array) {
+
+  let container = $('#' + id);
+
+  if (array.length == 0) {
+    container.append('No data...');
+    return;
+  }
+
+  array.forEach((item, index) => {
+    container.append(feedbackNode(item.displayName, item.content));
   });
 }

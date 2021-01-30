@@ -129,7 +129,7 @@ session_start();
                 </a>
               </li>
 
-              <li class="active" id="per_module">
+              <li id="per_module">
                 <a data-toggle="tab" href="#per_module_content">
                   <span class="text-main-black">Per Module</span>
                 </a>
@@ -141,7 +141,7 @@ session_start();
                 </a>
               </li>
 
-              <li id="detailed">
+              <li class="active" id="detailed">
                 <a data-toggle="tab" href="#detailed_content">
                   <span class="text-main-black">Student Feedbacks</span>
                 </a>
@@ -151,7 +151,7 @@ session_start();
 
             <div class="tab-content">
 
-              <div id="per_module_content" class="tab-pane fade in active">
+              <div id="per_module_content" class="tab-pane fade in">
 
                 <div style="margin-top:20px;">
 
@@ -360,9 +360,60 @@ session_start();
 
               </div>
 
-              <div id="detailed_content" class="tab-pane fade in">
+              <div id="detailed_content" class="tab-pane fade in active">
 
                 <div style="margin-top:20px;">
+
+                  <form id="feedback_form" class="form-horizontal" role="form" autocomplete="off">
+
+                    <div class="row">
+
+                      <div class="col-sm-6">
+                        <div class="form-group has-feedback">
+                          <label class="col-sm-5 control-label">Choose a Material:</label>
+                          <div class="col-sm-7">
+                            <select class="form-control" name="materials"></select>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+
+                  </form>
+
+                  <hr>
+
+                  <div class="row">
+
+                    <div class="col-sm-6">
+                      <p><b>Material Name:</b> <span id="feedback_material_name"></span></p>
+                    </div>
+
+                    <div class="col-sm-6">
+                      <p><b>Total Respondents:</b> <b id="feedback_respondents_count">0</b> out of <span id="feedback_total_count">0</span> students</p>
+                    </div>
+
+                  </div>
+
+                  <hr>
+
+                  <table class="table table-bordered table-condensed">
+                    <tbody>
+                      <tr>
+                        <td style="width: 200px">Sad</td>
+                        <td id="negative_feedbacks"></td>
+                      </tr>
+                      <tr>
+                        <td>Neutral</td>
+                        <td id="neutral_feedbacks"></td>
+                      </tr>
+                      <tr>
+                        <td>Happy</td>
+                        <td id="positive_feedbacks"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+
                 </div>
 
               </div>
@@ -427,6 +478,7 @@ session_start();
     <script src="js/progress/events/init.js"></script>
     <script src="js/progress/events/detailed_report.js"></script>
     <script src="js/progress/events/summarized_report.js"></script>
+    <script src="js/progress/events/feedback_report.js"></script>
 
 </body>
 

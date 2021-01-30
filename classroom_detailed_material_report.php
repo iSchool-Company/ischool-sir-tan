@@ -88,6 +88,14 @@ session_start();
   <div id="main" class="panel panel-default" style="border-radius: 0;">
     <div class="panel-body">
 
+      <div class="text-center">
+        <img src="./pictures/modules/logo_banner.png" style="width: 300px;">
+      </div>
+
+      <br>
+      <hr>
+      <br>
+
       <div class="row">
 
         <div class="col-sm-6">

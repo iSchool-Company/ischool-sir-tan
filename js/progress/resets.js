@@ -32,3 +32,9 @@ function resetCriteriaDetails(rateNum) {
   $('#detailed_rate_' + rateNum + '_pos').text('');
   $('#detailed_rate_' + rateNum + '_pos').css('width', '0%');
 }
+
+function resetFeedbacks() {
+  $('#negative_feedbacks').html('');
+  $('#neutral_feedbacks').html('');
+  $('#positive_feedbacks').html('');
+}
