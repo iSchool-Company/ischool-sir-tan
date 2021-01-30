@@ -11,6 +11,8 @@ session_start();
   <?php
   require 'meta.php';
   ?>
+  <link rel="stylesheet" href="../frameworks/Chartist 0.11.0/chartist.min.css">
+  <script src="../frameworks/Chartist 0.11.0/chartist.min.js"></script>
 
   <style>
     .rate-picker {
@@ -61,6 +63,27 @@ session_start();
       height: 24px;
       border-radius: 5px;
     }
+
+    .ct-series-a .ct-bar,
+    .ct-series-a .ct-line,
+    .ct-series-a .ct-point,
+    .ct-series-a .ct-slice-donut {
+      stroke: #f44336;
+    }
+
+    .ct-series-b .ct-bar,
+    .ct-series-b .ct-line,
+    .ct-series-b .ct-point,
+    .ct-series-b .ct-slice-donut {
+      stroke: #62757f;
+    }
+
+    .ct-series-c .ct-bar,
+    .ct-series-c .ct-line,
+    .ct-series-c .ct-point,
+    .ct-series-c .ct-slice-donut {
+      stroke: #4caf50;
+    }
   </style>
 
 </head>
@@ -71,7 +94,7 @@ session_start();
   require 'classroom_header.php';
   ?>
 
-  <div class="container-fluid">
+  <div class=" container-fluid">
 
     <div class="row">
 
@@ -323,6 +346,16 @@ session_start();
               <div id="summary_content" class="tab-pane fade in">
 
                 <div style="margin-top:20px;">
+
+                  <br>
+                  <br>
+                  <div id="summary_bar"></div>
+                  <br>
+                  <br>
+                  <div id="summary_line"></div>
+                  <br>
+                  <br>
+
                 </div>
 
               </div>
@@ -385,6 +418,7 @@ session_start();
     <script src="js/my_classroom_display_manager.js"></script>
 
     <!-- Materials Workers -->
+    <script src="js/progress/variables.js"></script>
     <script src="js/progress/nodes.js"></script>
     <script src="js/progress/displays.js"></script>
     <script src="js/progress/resets.js"></script>
@@ -392,6 +426,7 @@ session_start();
     <script src="js/progress/operations/retrieval.js"></script>
     <script src="js/progress/events/init.js"></script>
     <script src="js/progress/events/detailed_report.js"></script>
+    <script src="js/progress/events/summarized_report.js"></script>
 
 </body>
 

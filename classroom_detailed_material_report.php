@@ -280,11 +280,14 @@ session_start();
 
           let imageBase64 = canvas.toDataURL('image/png');
 
-          $('#main').html('<img src="' + imageBase64 + '" style="width:100%">');
+          setTimeout(() => {
 
-          setTimeout(function() {
-            window.print();
-          }, 1500);
+            $('#main').html('<img src="' + imageBase64 + '" style="width:100%">');
+
+            setTimeout(function() {
+              window.print();
+            }, 1500);
+          });
         });
       });
     });

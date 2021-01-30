@@ -8,10 +8,7 @@ $(document).ready(function () {
     retrieveDetailedReview(materialSelect.val(), classroomId);
   });
 
-  $('#detailed_print_button').click(function () {
-
-    let materialId = $('#report_form [name="materials"]').val();
-
-    window.open('classroom_detailed_material_report.php?material_id=' + materialId);
+  $('#per_module>a').on('shown.bs.tab', function (event) {
+    activeTab = 'per_module';
   });
 });

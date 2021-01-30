@@ -72,3 +72,15 @@ function showCriteriaDetails(data, respondents, rateNum) {
   $('#detailed_rate_' + rateNum + '_pos').text(ratePosPercentage === 0 ? '' : ratePosPercentage + '%');
   $('#detailed_rate_' + rateNum + '_pos').css('width', ratePosPercentage + '%');
 }
+
+function showSummarizedReport(data) {
+
+  data.materials.forEach(mat => {
+
+    chartLabels.push(mat.name);
+
+    chartSeries[0].push(mat.neg);
+    chartSeries[1].push(mat.neu);
+    chartSeries[2].push(mat.pos);
+  });
+}

@@ -59,3 +59,32 @@ function retrieveDetailedReview(
     }
   });
 }
+
+function retrieveSummarizedReview(
+  crId,
+  successCallback
+) {
+
+  $.ajax({
+    url: 'database/materials/retrieve/summarized_report.php',
+    data: {
+      classroom_id: crId
+    },
+    success: function (data) {
+
+      var responseJSON = JSON.parse(data);
+      var response = responseJSON.response;
+
+      if (response === 'found') {
+
+        var info = responseJSON.info;
+
+        showSummarizedReport(info);
+
+        if (successCallback != null) {
+          successCallback();
+        }
+      }
+    }
+  });
+}
