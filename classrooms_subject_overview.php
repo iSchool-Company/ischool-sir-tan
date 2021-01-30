@@ -341,34 +341,79 @@ session_start();
               </thead>
               <tbody>
                 <tr>
-                  <td>Objectives are clearly stated</td>
+                  <td colspan="4"><b>A. TEACHER</b></td>
+                </tr>
+                <tr>
+                  <td>&nbsp;&nbsp;Personality</td>
                   <td class="text-center"><input type="radio" name="rate_1" value="neg"></td>
                   <td class="text-center"><input id="rate_1_neu" type="radio" name="rate_1" value="neu" checked></td>
                   <td class="text-center"><input type="radio" name="rate_1" value="pos"></td>
                 </tr>
                 <tr>
-                  <td>Content is aligned with course</td>
+                  <td>&nbsp;&nbsp;Composure</td>
                   <td class="text-center"><input type="radio" name="rate_2" value="neg"></td>
                   <td class="text-center"><input id="rate_2_neu" type="radio" name="rate_2" value="neu" checked></td>
                   <td class="text-center"><input type="radio" name="rate_2" value="pos"></td>
                 </tr>
                 <tr>
-                  <td>Content is well organized</td>
+                  <td>&nbsp;&nbsp;Articulation and modulation of voice</td>
                   <td class="text-center"><input type="radio" name="rate_3" value="neg"></td>
                   <td class="text-center"><input id="rate_3_neu" type="radio" name="rate_3" value="neu" checked></td>
                   <td class="text-center"><input type="radio" name="rate_3" value="pos"></td>
                 </tr>
                 <tr>
-                  <td>Instructions are clearly stated</td>
+                  <td>&nbsp;&nbsp;Mastery of the subject matter</td>
                   <td class="text-center"><input type="radio" name="rate_4" value="neg"></td>
                   <td class="text-center"><input id="rate_4_neu" type="radio" name="rate_4" value="neu" checked></td>
                   <td class="text-center"><input type="radio" name="rate_4" value="pos"></td>
                 </tr>
                 <tr>
-                  <td>Activities are aligned with content</td>
+                  <td colspan="4"><b>B. TEACHING PROCEDURE</b></td>
+                </tr>
+                <tr>
+                  <td>&nbsp;&nbsp;Organization of lectures</td>
                   <td class="text-center"><input type="radio" name="rate_5" value="neg"></td>
                   <td class="text-center"><input id="rate_5_neu" type="radio" name="rate_5" value="neu" checked></td>
                   <td class="text-center"><input type="radio" name="rate_5" value="pos"></td>
+                </tr>
+                <tr>
+                  <td>&nbsp;&nbsp;Ability to stimulate critical thinking</td>
+                  <td class="text-center"><input type="radio" name="rate_6" value="neg"></td>
+                  <td class="text-center"><input id="rate_6_neu" type="radio" name="rate_6" value="neu" checked></td>
+                  <td class="text-center"><input type="radio" name="rate_6" value="pos"></td>
+                </tr>
+                <tr>
+                  <td>&nbsp;&nbsp;Ability to motivate students</td>
+                  <td class="text-center"><input type="radio" name="rate_7" value="neg"></td>
+                  <td class="text-center"><input id="rate_7_neu" type="radio" name="rate_7" value="neu" checked></td>
+                  <td class="text-center"><input type="radio" name="rate_7" value="pos"></td>
+                </tr>
+                <tr>
+                  <td>&nbsp;&nbsp;Use of instructional materials</td>
+                  <td class="text-center"><input type="radio" name="rate_8" value="neg"></td>
+                  <td class="text-center"><input id="rate_8_neu" type="radio" name="rate_8" value="neu" checked></td>
+                  <td class="text-center"><input type="radio" name="rate_8" value="pos"></td>
+                </tr>
+                <tr>
+                  <td colspan="4"><b>C. STUDENTS</b></td>
+                </tr>
+                <tr>
+                  <td>&nbsp;&nbsp;Rapport with teacher</td>
+                  <td class="text-center"><input type="radio" name="rate_9" value="neg"></td>
+                  <td class="text-center"><input id="rate_9_neu" type="radio" name="rate_9" value="neu" checked></td>
+                  <td class="text-center"><input type="radio" name="rate_9" value="pos"></td>
+                </tr>
+                <tr>
+                  <td>&nbsp;&nbsp;Discipline is manifested</td>
+                  <td class="text-center"><input type="radio" name="rate_10" value="neg"></td>
+                  <td class="text-center"><input id="rate_10_neu" type="radio" name="rate_10" value="neu" checked></td>
+                  <td class="text-center"><input type="radio" name="rate_10" value="pos"></td>
+                </tr>
+                <tr>
+                  <td>&nbsp;&nbsp;Participation in the discussion</td>
+                  <td class="text-center"><input type="radio" name="rate_11" value="neg"></td>
+                  <td class="text-center"><input id="rate_11_neu" type="radio" name="rate_11" value="neu" checked></td>
+                  <td class="text-center"><input type="radio" name="rate_11" value="pos"></td>
                 </tr>
               </tbody>
             </table>

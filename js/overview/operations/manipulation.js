@@ -74,6 +74,12 @@ function rateInstructor(
   rate3,
   rate4,
   rate5,
+  rate6,
+  rate7,
+  rate8,
+  rate9,
+  rate10,
+  rate11,
   content,
   rateValue
 ) {
@@ -87,6 +93,12 @@ function rateInstructor(
   formData.append('rate_3', rate3);
   formData.append('rate_4', rate4);
   formData.append('rate_5', rate5);
+  formData.append('rate_6', rate6);
+  formData.append('rate_7', rate7);
+  formData.append('rate_8', rate8);
+  formData.append('rate_9', rate9);
+  formData.append('rate_10', rate10);
+  formData.append('rate_11', rate11);
   formData.append('content', content);
   formData.append('rate_value', rateValue);
 

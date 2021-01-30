@@ -13,6 +13,12 @@ if (
   $_POST['rate_3'],
   $_POST['rate_4'],
   $_POST['rate_5'],
+  $_POST['rate_6'],
+  $_POST['rate_7'],
+  $_POST['rate_8'],
+  $_POST['rate_9'],
+  $_POST['rate_10'],
+  $_POST['rate_11'],
   $_POST['content'],
   $_POST['rate_value'])
 ) {
@@ -24,6 +30,12 @@ if (
   $rate3 = $_POST['rate_3'];
   $rate4 = $_POST['rate_4'];
   $rate5 = $_POST['rate_5'];
+  $rate6 = $_POST['rate_6'];
+  $rate7 = $_POST['rate_7'];
+  $rate8 = $_POST['rate_8'];
+  $rate9 = $_POST['rate_9'];
+  $rate10 = $_POST['rate_10'];
+  $rate11 = $_POST['rate_11'];
   $content = $_POST['content'];
   $rateValue = $_POST['rate_value'];
   $dateNow = date('Y-m-d H:i:s');
@@ -49,11 +61,11 @@ if (
 
   $rateValueSubstr = substr($rateValue, 0, 3);
 
-  $command = 'INSERT INTO classrooms_reviews (classroom_id, student_id, rate_1, rate_2, rate_3, rate_4, rate_5, content, rate) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)';
+  $command = 'INSERT INTO classrooms_reviews (classroom_id, student_id, rate_1, rate_2, rate_3, rate_4, rate_5, rate_6, rate_7, rate_8, rate_9, rate_10, rate_11, content, rate) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
 
   $statement = $connection->prepare($command);
   $statement->bind_param(
-    'iisssssss',
+    'iisssssssssssss',
     $classroomId,
     $userId,
     $rate1,
@@ -61,6 +73,12 @@ if (
     $rate3,
     $rate4,
     $rate5,
+    $rate6,
+    $rate7,
+    $rate8,
+    $rate9,
+    $rate10,
+    $rate11,
     $content,
     $rateValueSubstr
   );
