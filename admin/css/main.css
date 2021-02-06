@@ -133,6 +133,61 @@ hr {
   max-width: none;
 }
 
+.rate-button {
+  display: block;
+  width: 150px;
+  float: left;
+  text-align: center;
+}
+
+.rate-button>.rate-icon {
+  font-size: 72px;
+  color: #eceff1;
+}
+
+.rate-button:hover {
+  cursor: pointer;
+}
+
+.rate-negative.active>.rate-icon,
+.rate-negative.active,
+.rate-negative:active {
+  color: #e57373;
+}
+
+.rate-negative:hover,
+.rate-negative:hover>.rate-icon,
+.rate-negative.static,
+.rate-negative.static>.rate-icon {
+  color: #f44336;
+}
+
+.rate-neutral.active>.rate-icon,
+.rate-neutral.active,
+.rate-neutral:active {
+  color: #90a4ae;
+}
+
+.rate-neutral:hover,
+.rate-neutral:hover>.rate-icon,
+.rate-neutral.static,
+.rate-neutral.static>.rate-icon {
+  color: #62757f;
+}
+
+.rate-positive.active>.rate-icon,
+.rate-positive.active,
+.rate-positive:active {
+  color: #81c784;
+}
+
+.rate-positive:hover,
+.rate-positive:hover>.rate-icon,
+.rate-positive.static,
+.rate-positive.static>.rate-icon {
+  color: #4caf50;
+}
+
 @media screen and (max-width: 768px) {
 
   .tooltip {

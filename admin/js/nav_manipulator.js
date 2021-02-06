@@ -19,6 +19,10 @@ switch (page) {
     $('#nav_classrooms').addClass('active');
     break;
 
+  case 'reports.php':
+    $('#nav_reports').addClass('active');
+    break;
+
   default:
     $('#nav_home').addClass('active');
 }
