@@ -87,6 +87,8 @@ function retrieveSummarizedReview(
           successCallback();
         }
       }
+
+      $('#summary_loading').remove();
     }
   });
 }

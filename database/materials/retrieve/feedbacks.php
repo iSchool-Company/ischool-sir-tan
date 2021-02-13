@@ -5,8 +5,10 @@ require '../../connection.php';
 if (
   $_SERVER['REQUEST_METHOD'] === 'GET'
   &&
-  isset($_GET['materials_id'],
-  $_GET['classroom_id'])
+  isset(
+    $_GET['materials_id'],
+    $_GET['classroom_id']
+  )
 ) {
 
   $pythonDir = '../../../python/';
@@ -49,7 +51,7 @@ if (
 
   $statement->close();
 
-  $command = 'SELECT mr.content, mr.anonymous, u.username, u.first_name, u.middle_name FROM materials AS m INNER JOIN materials_reviews AS mr ON m.id = mr.material_id LEFT JOIN users AS u ON mr.student_id = u.id WHERE m.id = ?';
+  $command = 'SELECT mr.content, mr.anonymous, u.username, u.first_name, u.middle_name FROM materials AS m INNER JOIN materials_reviews AS mr ON m.id = mr.material_id LEFT JOIN users AS u ON mr.student_id = u.id WHERE m.id = ? ORDER BY mr.anonymous';
   $statement = $connection->prepare($command);
   $statement->bind_param('i', $materialsId);
   $statement->execute();

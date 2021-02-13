@@ -16,9 +16,7 @@ session_start();
 
   <style media="all">
     #main {
-      width: 900px;
-      margin: auto;
-      margin-top: 50px;
+      margin: 50px 25px;
     }
   </style>
 
@@ -30,7 +28,7 @@ session_start();
     <div class="panel-body">
 
       <div class="text-center">
-        <img src="./pictures/modules/logo_banner.png" style="width: 300px;">
+        <img src="./pictures/modules/logo_banner.png" style="width: 150px;">
       </div>
 
       <br>

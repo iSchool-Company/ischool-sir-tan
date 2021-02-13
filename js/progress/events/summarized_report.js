@@ -33,16 +33,6 @@ $(document).ready(function () {
 
     activeTab = 'summary';
 
-    setTimeout(function () {
-
-      var data = {
-        labels: chartLabels,
-        series: chartSeries
-      };
-
-      // Creation Proper
-      new Chartist.Bar('#summary_bar', data, barChartOptions, responsiveOptions);
-      new Chartist.Line('#summary_line', data, lineChartOptions, responsiveOptions);
-    }, 1000);
+    setTimeout(renderCharts, 1000);
   });
 });

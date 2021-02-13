@@ -250,5 +250,11 @@ hr {
   .tooltip {
     display: none !important;
   }
+}
 
+@media print {
+
+  body {
+    -webkit-print-color-adjust: exact;
+  }
 }

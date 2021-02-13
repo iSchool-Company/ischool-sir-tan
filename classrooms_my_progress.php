@@ -129,7 +129,7 @@ session_start();
                 </a>
               </li>
 
-              <li id="per_module">
+              <li id="per_module" class="active">
                 <a data-toggle="tab" href="#per_module_content">
                   <span class="text-main-black">Per Module</span>
                 </a>
@@ -141,7 +141,7 @@ session_start();
                 </a>
               </li>
 
-              <li class="active" id="detailed">
+              <li id="detailed">
                 <a data-toggle="tab" href="#detailed_content">
                   <span class="text-main-black">Student Feedbacks</span>
                 </a>
@@ -151,7 +151,7 @@ session_start();
 
             <div class="tab-content">
 
-              <div id="per_module_content" class="tab-pane fade in">
+              <div id="per_module_content" class="tab-pane fade in active">
 
                 <div style="margin-top:20px;">
 
@@ -347,6 +347,8 @@ session_start();
 
                 <div style="margin-top:20px;">
 
+                  <h4 id="summary_loading" class="text-center">Retrieving data please wait...</h4>
+
                   <br>
                   <br>
                   <div id="summary_bar"></div>
@@ -360,7 +362,7 @@ session_start();
 
               </div>
 
-              <div id="detailed_content" class="tab-pane fade in active">
+              <div id="detailed_content" class="tab-pane fade in">
 
                 <div style="margin-top:20px;">
 

@@ -16,9 +16,7 @@ session_start();
 
   <style>
     #main {
-      width: 900px;
-      margin: auto;
-      margin-top: 50px;
+      margin: 50px 25px;
     }
 
     .ct-series-a .ct-bar,
@@ -51,21 +49,18 @@ session_start();
     <div class="panel-body">
 
       <div class="text-center">
-        <img src="./pictures/modules/logo_banner.png" style="width: 300px;">
+        <img src="./pictures/modules/logo_banner.png" style="width: 150px;">
       </div>
 
       <br>
       <hr>
       <br>
 
-      <br>
-      <br>
+      <h4 id="summary_loading" class="text-center">Retrieving data please wait...</h4>
+
       <div id="summary_bar"></div>
-      <br>
-      <br>
+
       <div id="summary_line"></div>
-      <br>
-      <br>
 
     </div>
   </div>
@@ -92,14 +87,7 @@ session_start();
 
       retrieveSummarizedReview(classroomId, function() {
 
-        var data = {
-          labels: chartLabels,
-          series: chartSeries
-        };
-
-        // Creation Proper
-        new Chartist.Bar('#summary_bar', data, barChartOptions, responsiveOptions);
-        new Chartist.Line('#summary_line', data, lineChartOptions, responsiveOptions);
+        renderCharts();
 
         setTimeout(function() {
           window.print();

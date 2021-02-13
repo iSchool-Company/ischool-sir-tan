@@ -12,17 +12,12 @@ session_start();
   require 'meta.php';
   ?>
 
-  <script src="../frameworks/html2canvas 1.0.0-rc.7/html2canvas.min.js"></script>
-
   <style media="all">
     #main {
-      width: 900px;
-      margin: auto;
-      margin-top: 50px;
+      margin: 50px 25px;
     }
 
     .rate-picker {
-      width: calc(90% - 350px);
       margin-left: 350px;
     }
 
@@ -36,7 +31,7 @@ session_start();
     }
 
     .criteria-table {
-      width: 90%;
+      width: 100%;
     }
 
     .criteria-table td {
@@ -65,20 +60,6 @@ session_start();
       height: 24px;
       border-radius: 5px;
     }
-
-    @media print {
-      .progress-bar-negative {
-        background-color: #f44336 !important;
-      }
-
-      .progress-bar-neutral {
-        background-color: #62757f !important;
-      }
-
-      .progress-bar-positive {
-        background-color: #4caf50 !important;
-      }
-    }
   </style>
 
 </head>
@@ -89,7 +70,7 @@ session_start();
     <div class="panel-body">
 
       <div class="text-center">
-        <img src="./pictures/modules/logo_banner.png" style="width: 300px;">
+        <img src="./pictures/modules/logo_banner.png" style="width: 150px;">
       </div>
 
       <br>
@@ -284,19 +265,9 @@ session_start();
 
       retrieveDetailedReview(materialId, classroomId, function() {
 
-        html2canvas(document.getElementById('main')).then(function(canvas) {
-
-          let imageBase64 = canvas.toDataURL('image/png');
-
-          setTimeout(() => {
-
-            $('#main').html('<img src="' + imageBase64 + '" style="width:100%">');
-
-            setTimeout(function() {
-              window.print();
-            }, 1500);
-          });
-        });
+        setTimeout(function() {
+          window.print();
+        }, 1500);
       });
     });
 

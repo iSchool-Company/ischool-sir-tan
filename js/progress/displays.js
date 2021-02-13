@@ -75,14 +75,101 @@ function showCriteriaDetails(data, respondents, rateNum) {
 
 function showSummarizedReport(data) {
 
-  data.materials.forEach(mat => {
+  data.materials.forEach((mat, i) => {
 
-    chartLabels.push(mat.name);
+    lineLabels.push(mat.name);
 
-    chartSeries[0].push(mat.neg);
-    chartSeries[1].push(mat.neu);
-    chartSeries[2].push(mat.pos);
+    lineSeries[0].push(mat.neg);
+    lineSeries[1].push(mat.neu);
+    lineSeries[2].push(mat.pos);
+
+    let part = Math.floor(i / 6);
+
+    let currBarLabels = barLabels[part];
+    let currBarSeries = barSeries[part];
+
+    if (currBarLabels == null) {
+      barLabels[part] = [];
+      currBarLabels = barLabels[part];
+    }
+
+    if (currBarSeries == null) {
+      barSeries[part] = [[], [], []];
+      currBarSeries = barSeries[part];
+    }
+
+    currBarLabels.push(mat.name);
+
+    currBarSeries[0].push(mat.neg);
+    currBarSeries[1].push(mat.neu);
+    currBarSeries[2].push(mat.pos);
+
+    max = Math.max(max, mat.neg);
+    max = Math.max(max, mat.neu);
+    max = Math.max(max, mat.pos);
   });
+
+  let size = data.materials.length;
+  let remainder = size % 6;
+  remainder = remainder === 0 ? 0 : 6 - remainder;
+
+  // fill the gap
+  for (let index = 0; index < remainder; index++) {
+
+    let lastIndex = Math.floor(size / 6);
+    let currBarLabels = barLabels[lastIndex];
+    let currBarSeries = barSeries[lastIndex];
+
+    currBarLabels.push('');
+
+    currBarSeries[0].push(0);
+    currBarSeries[1].push(0);
+    currBarSeries[2].push(0);
+  }
+
+  summaryDone = true;
+
+  if (activeTab == 'summary') {
+    renderCharts();
+  }
+}
+
+function renderCharts() {
+
+  if (!summaryDone) {
+    return;
+  }
+
+  barChartOptions.high = Math.ceil(max / 5) * 5;
+
+  let barChartDiv = $('#summary_bar');
+
+  barLabels.forEach((label, i) => {
+
+    let barId = 'bar' + i;
+    let chartDiv = $('<div id="' + barId + '"></div>');
+
+    barChartDiv.append(chartDiv);
+
+    var data = {
+      labels: label,
+      series: barSeries[i]
+    };
+
+    // Creation Proper
+    new Chartist.Bar('#' + barId, data, barChartOptions, responsiveOptions);
+  });
+
+  if (lineLabels.length == 0) {
+    return;
+  }
+
+  var data = {
+    labels: lineLabels,
+    series: lineSeries
+  };
+
+  new Chartist.Line('#summary_line', data, lineChartOptions, responsiveOptions);
 }
 
 function showFeedbacks(data) {

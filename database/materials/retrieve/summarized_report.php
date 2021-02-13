@@ -42,14 +42,14 @@ if (
 
   $statement->close();
 
-  $fileName = "summary-$classroomId.txt";
-  $fileNameDir = "$pythonDir$fileName";
-
-  $file = fopen($fileNameDir, 'w');
-
   foreach ($data['materials'] as &$mat) {
 
     $materialsId = $mat['id'];
+
+    $fileName = "summary-$classroomId-$materialsId.txt";
+    $fileNameDir = "$pythonDir$fileName";
+
+    $file = fopen($fileNameDir, 'w');
 
     $command = 'SELECT mr.content FROM materials AS m INNER JOIN materials_reviews AS mr ON m.id = mr.material_id WHERE m.id = ?';
     $statement = $connection->prepare($command);
@@ -81,11 +81,11 @@ if (
         $mat['neu']++;
       }
     }
+
+    fclose($file);
+
+    unlink($fileNameDir);
   }
-
-  fclose($file);
-
-  unlink($fileNameDir);
 
   $response = [
     'response' => $data === [] ? 'nothing' : 'found',
