@@ -546,6 +546,30 @@ session_start();
     </div>
   </div>
 
+  <div id="force_rate_modal" class="modal fade">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <div class="modal-body">
+          <h1 class="text-center">Please rate your teacher now.</h1>
+          <br>
+          <br>
+          <p class="text-center">
+            <span class="fa fa-list" style="font-size: 150px;"></span>
+          </p>
+          <br>
+        </div>
+
+        <div class="modal-footer">
+          <button class="btn btn-success btn-sm" type="button" name="ok_button" data-dismiss="modal">
+            <span class="fa fa-thumbs-up"></span> Ok
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
   <!-- Main Variables -->
   <script>
     var classroomId = <?php echo isset($_SESSION['classroom_id']) ? $_SESSION['classroom_id'] : '0' ?>;

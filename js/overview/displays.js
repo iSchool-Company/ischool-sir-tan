@@ -1,3 +1,4 @@
+var rateModalOpened = false;
 
 function showClassroomDetails(data) {
 
@@ -49,7 +50,15 @@ function showClassroomDetails(data) {
     let rateButton = $('#rate_button');
 
     if (myType === 'Student' && info.is_review_open && !info.has_review) {
+
       showIfEver(rateButton);
+
+      if (!rateModalOpened) {
+
+        $("#force_rate_modal").modal();
+
+        rateModalOpened = true;
+      }
     } else {
       hideIfEver(rateButton);
     }

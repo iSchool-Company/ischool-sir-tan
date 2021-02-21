@@ -73,6 +73,10 @@ $(document).ready(function () {
       );
     }
   });
+
+  $('#force_rate_modal').on('hidden.bs.modal', () => {
+    $('#rate_modal').modal();
+  });
 });
 
 function setRateValue(value) {
