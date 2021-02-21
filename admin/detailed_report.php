@@ -171,9 +171,9 @@ session_start();
               <td style="width:350px;">&nbsp;&nbsp;Personality</td>
               <td>
                 <div class="progress">
-                  <div class="progress-bar progress-bar-negative" role="progressbar" ng-style="{ width : (detailedReport.rate_1.neg + '%') }">{{ detailedReport.rate_1.neg + '%' }}</div>
-                  <div class="progress-bar progress-bar-neutral" role="progressbar" ng-style="{ width : (detailedReport.rate_1.neu + '%') }">{{ detailedReport.rate_1.neu + '%' }}</div>
-                  <div class="progress-bar progress-bar-positive" role="progressbar" ng-style="{ width : (detailedReport.rate_1.pos + '%') }">{{ detailedReport.rate_1.pos + '%' }}</div>
+                  <div class="progress-bar progress-bar-negative" role="progressbar" ng-style="{ width : (detailedReport.rate_1.neg + '%') }">{{ percentageText(detailedReport.rate_1.neg) }}</div>
+                  <div class="progress-bar progress-bar-neutral" role="progressbar" ng-style="{ width : (detailedReport.rate_1.neu + '%') }">{{ percentageText(detailedReport.rate_1.neu) }}</div>
+                  <div class="progress-bar progress-bar-positive" role="progressbar" ng-style="{ width : (detailedReport.rate_1.pos + '%') }">{{ percentageText(detailedReport.rate_1.pos) }}</div>
                 </div>
               </td>
             </tr>
@@ -182,9 +182,9 @@ session_start();
               <td style="width:350px;">&nbsp;&nbsp;Composure</td>
               <td>
                 <div class="progress">
-                  <div class="progress-bar progress-bar-negative" role="progressbar" ng-style="{ width : (detailedReport.rate_2.neg + '%') }">{{ detailedReport.rate_2.neg + '%' }}</div>
-                  <div class="progress-bar progress-bar-neutral" role="progressbar" ng-style="{ width : (detailedReport.rate_2.neu + '%') }">{{ detailedReport.rate_2.neu + '%' }}</div>
-                  <div class="progress-bar progress-bar-positive" role="progressbar" ng-style="{ width : (detailedReport.rate_2.pos + '%') }">{{ detailedReport.rate_2.pos + '%' }}</div>
+                  <div class="progress-bar progress-bar-negative" role="progressbar" ng-style="{ width : (detailedReport.rate_2.neg + '%') }">{{ percentageText(detailedReport.rate_2.neg) }}</div>
+                  <div class="progress-bar progress-bar-neutral" role="progressbar" ng-style="{ width : (detailedReport.rate_2.neu + '%') }">{{ percentageText(detailedReport.rate_2.neu) }}</div>
+                  <div class="progress-bar progress-bar-positive" role="progressbar" ng-style="{ width : (detailedReport.rate_2.pos + '%') }">{{ percentageText(detailedReport.rate_2.pos) }}</div>
                 </div>
               </td>
             </tr>
@@ -193,9 +193,9 @@ session_start();
               <td style="width:350px;">&nbsp;&nbsp;Articulation and modulation of voice</td>
               <td>
                 <div class="progress">
-                  <div class="progress-bar progress-bar-negative" role="progressbar" ng-style="{ width : (detailedReport.rate_3.neg + '%') }">{{ detailedReport.rate_3.neg + '%' }}</div>
-                  <div class="progress-bar progress-bar-neutral" role="progressbar" ng-style="{ width : (detailedReport.rate_3.neu + '%') }">{{ detailedReport.rate_3.neu + '%' }}</div>
-                  <div class="progress-bar progress-bar-positive" role="progressbar" ng-style="{ width : (detailedReport.rate_3.pos + '%') }">{{ detailedReport.rate_3.pos + '%' }}</div>
+                  <div class="progress-bar progress-bar-negative" role="progressbar" ng-style="{ width : (detailedReport.rate_3.neg + '%') }">{{ percentageText(detailedReport.rate_3.neg) }}</div>
+                  <div class="progress-bar progress-bar-neutral" role="progressbar" ng-style="{ width : (detailedReport.rate_3.neu + '%') }">{{ percentageText(detailedReport.rate_3.neu) }}</div>
+                  <div class="progress-bar progress-bar-positive" role="progressbar" ng-style="{ width : (detailedReport.rate_3.pos + '%') }">{{ percentageText(detailedReport.rate_3.pos) }}</div>
                 </div>
               </td>
             </tr>
@@ -204,9 +204,9 @@ session_start();
               <td style="width:350px;">&nbsp;&nbsp;Mastery of the subject matter</td>
               <td>
                 <div class="progress">
-                  <div class="progress-bar progress-bar-negative" role="progressbar" ng-style="{ width : (detailedReport.rate_4.neg + '%') }">{{ detailedReport.rate_4.neg + '%' }}</div>
-                  <div class="progress-bar progress-bar-neutral" role="progressbar" ng-style="{ width : (detailedReport.rate_4.neu + '%') }">{{ detailedReport.rate_4.neu + '%' }}</div>
-                  <div class="progress-bar progress-bar-positive" role="progressbar" ng-style="{ width : (detailedReport.rate_4.pos + '%') }">{{ detailedReport.rate_4.pos + '%' }}</div>
+                  <div class="progress-bar progress-bar-negative" role="progressbar" ng-style="{ width : (detailedReport.rate_4.neg + '%') }">{{ percentageText(detailedReport.rate_4.neg) }}</div>
+                  <div class="progress-bar progress-bar-neutral" role="progressbar" ng-style="{ width : (detailedReport.rate_4.neu + '%') }">{{ percentageText(detailedReport.rate_4.neu) }}</div>
+                  <div class="progress-bar progress-bar-positive" role="progressbar" ng-style="{ width : (detailedReport.rate_4.pos + '%') }">{{ percentageText(detailedReport.rate_4.pos) }}</div>
                 </div>
               </td>
             </tr>
@@ -219,9 +219,9 @@ session_start();
               <td style="width:350px;">&nbsp;&nbsp;Organization of lectures</td>
               <td>
                 <div class="progress">
-                  <div class="progress-bar progress-bar-negative" role="progressbar" ng-style="{ width : (detailedReport.rate_5.neg + '%') }">{{ detailedReport.rate_5.neg + '%' }}</div>
-                  <div class="progress-bar progress-bar-neutral" role="progressbar" ng-style="{ width : (detailedReport.rate_5.neu + '%') }">{{ detailedReport.rate_5.neu + '%' }}</div>
-                  <div class="progress-bar progress-bar-positive" role="progressbar" ng-style="{ width : (detailedReport.rate_5.pos + '%') }">{{ detailedReport.rate_5.pos + '%' }}</div>
+                  <div class="progress-bar progress-bar-negative" role="progressbar" ng-style="{ width : (detailedReport.rate_5.neg + '%') }">{{ percentageText(detailedReport.rate_5.neg) }}</div>
+                  <div class="progress-bar progress-bar-neutral" role="progressbar" ng-style="{ width : (detailedReport.rate_5.neu + '%') }">{{ percentageText(detailedReport.rate_5.neu) }}</div>
+                  <div class="progress-bar progress-bar-positive" role="progressbar" ng-style="{ width : (detailedReport.rate_5.pos + '%') }">{{ percentageText(detailedReport.rate_5.pos) }}</div>
                 </div>
               </td>
             </tr>
@@ -230,9 +230,9 @@ session_start();
               <td style="width:350px;">&nbsp;&nbsp;Ability to stimulate critical thinking</td>
               <td>
                 <div class="progress">
-                  <div class="progress-bar progress-bar-negative" role="progressbar" ng-style="{ width : (detailedReport.rate_6.neg + '%') }">{{ detailedReport.rate_6.neg + '%' }}</div>
-                  <div class="progress-bar progress-bar-neutral" role="progressbar" ng-style="{ width : (detailedReport.rate_6.neu + '%') }">{{ detailedReport.rate_6.neu + '%' }}</div>
-                  <div class="progress-bar progress-bar-positive" role="progressbar" ng-style="{ width : (detailedReport.rate_6.pos + '%') }">{{ detailedReport.rate_6.pos + '%' }}</div>
+                  <div class="progress-bar progress-bar-negative" role="progressbar" ng-style="{ width : (detailedReport.rate_6.neg + '%') }">{{ percentageText(detailedReport.rate_6.neg) }}</div>
+                  <div class="progress-bar progress-bar-neutral" role="progressbar" ng-style="{ width : (detailedReport.rate_6.neu + '%') }">{{ percentageText(detailedReport.rate_6.neu) }}</div>
+                  <div class="progress-bar progress-bar-positive" role="progressbar" ng-style="{ width : (detailedReport.rate_6.pos + '%') }">{{ percentageText(detailedReport.rate_6.pos) }}</div>
                 </div>
               </td>
             </tr>
@@ -241,9 +241,9 @@ session_start();
               <td style="width:350px;">&nbsp;&nbsp;Ability to motivate students</td>
               <td>
                 <div class="progress">
-                  <div class="progress-bar progress-bar-negative" role="progressbar" ng-style="{ width : (detailedReport.rate_7.neg + '%') }">{{ detailedReport.rate_7.neg + '%' }}</div>
-                  <div class="progress-bar progress-bar-neutral" role="progressbar" ng-style="{ width : (detailedReport.rate_7.neu + '%') }">{{ detailedReport.rate_7.neu + '%' }}</div>
-                  <div class="progress-bar progress-bar-positive" role="progressbar" ng-style="{ width : (detailedReport.rate_7.pos + '%') }">{{ detailedReport.rate_7.pos + '%' }}</div>
+                  <div class="progress-bar progress-bar-negative" role="progressbar" ng-style="{ width : (detailedReport.rate_7.neg + '%') }">{{ percentageText(detailedReport.rate_7.neg) }}</div>
+                  <div class="progress-bar progress-bar-neutral" role="progressbar" ng-style="{ width : (detailedReport.rate_7.neu + '%') }">{{ percentageText(detailedReport.rate_7.neu) }}</div>
+                  <div class="progress-bar progress-bar-positive" role="progressbar" ng-style="{ width : (detailedReport.rate_7.pos + '%') }">{{ percentageText(detailedReport.rate_7.pos) }}</div>
                 </div>
               </td>
             </tr>
@@ -252,9 +252,9 @@ session_start();
               <td style="width:350px;">&nbsp;&nbsp;Use of instructional materials</td>
               <td>
                 <div class="progress">
-                  <div class="progress-bar progress-bar-negative" role="progressbar" ng-style="{ width : (detailedReport.rate_8.neg + '%') }">{{ detailedReport.rate_8.neg + '%' }}</div>
-                  <div class="progress-bar progress-bar-neutral" role="progressbar" ng-style="{ width : (detailedReport.rate_8.neu + '%') }">{{ detailedReport.rate_8.neu + '%' }}</div>
-                  <div class="progress-bar progress-bar-positive" role="progressbar" ng-style="{ width : (detailedReport.rate_8.pos + '%') }">{{ detailedReport.rate_8.pos + '%' }}</div>
+                  <div class="progress-bar progress-bar-negative" role="progressbar" ng-style="{ width : (detailedReport.rate_8.neg + '%') }">{{ percentageText(detailedReport.rate_8.neg) }}</div>
+                  <div class="progress-bar progress-bar-neutral" role="progressbar" ng-style="{ width : (detailedReport.rate_8.neu + '%') }">{{ percentageText(detailedReport.rate_8.neu) }}</div>
+                  <div class="progress-bar progress-bar-positive" role="progressbar" ng-style="{ width : (detailedReport.rate_8.pos + '%') }">{{ percentageText(detailedReport.rate_8.pos) }}</div>
                 </div>
               </td>
             </tr>
@@ -267,9 +267,9 @@ session_start();
               <td style="width:350px;">&nbsp;&nbsp;Rapport with teacher</td>
               <td>
                 <div class="progress">
-                  <div class="progress-bar progress-bar-negative" role="progressbar" ng-style="{ width : (detailedReport.rate_9.neg + '%') }">{{ detailedReport.rate_9.neg + '%' }}</div>
-                  <div class="progress-bar progress-bar-neutral" role="progressbar" ng-style="{ width : (detailedReport.rate_9.neu + '%') }">{{ detailedReport.rate_9.neu + '%' }}</div>
-                  <div class="progress-bar progress-bar-positive" role="progressbar" ng-style="{ width : (detailedReport.rate_9.pos + '%') }">{{ detailedReport.rate_9.pos + '%' }}</div>
+                  <div class="progress-bar progress-bar-negative" role="progressbar" ng-style="{ width : (detailedReport.rate_9.neg + '%') }">{{ percentageText(detailedReport.rate_9.neg) }}</div>
+                  <div class="progress-bar progress-bar-neutral" role="progressbar" ng-style="{ width : (detailedReport.rate_9.neu + '%') }">{{ percentageText(detailedReport.rate_9.neu) }}</div>
+                  <div class="progress-bar progress-bar-positive" role="progressbar" ng-style="{ width : (detailedReport.rate_9.pos + '%') }">{{ percentageText(detailedReport.rate_9.pos) }}</div>
                 </div>
               </td>
             </tr>
@@ -278,9 +278,9 @@ session_start();
               <td style="width:350px;">&nbsp;&nbsp;Discipline is manifested</td>
               <td>
                 <div class="progress">
-                  <div class="progress-bar progress-bar-negative" role="progressbar" ng-style="{ width : (detailedReport.rate_10.neg + '%') }">{{ detailedReport.rate_10.neg + '%' }}</div>
-                  <div class="progress-bar progress-bar-neutral" role="progressbar" ng-style="{ width : (detailedReport.rate_10.neu + '%') }">{{ detailedReport.rate_10.neu + '%' }}</div>
-                  <div class="progress-bar progress-bar-positive" role="progressbar" ng-style="{ width : (detailedReport.rate_10.pos + '%') }">{{ detailedReport.rate_10.pos + '%' }}</div>
+                  <div class="progress-bar progress-bar-negative" role="progressbar" ng-style="{ width : (detailedReport.rate_10.neg + '%') }">{{ percentageText(detailedReport.rate_10.neg) }}</div>
+                  <div class="progress-bar progress-bar-neutral" role="progressbar" ng-style="{ width : (detailedReport.rate_10.neu + '%') }">{{ percentageText(detailedReport.rate_10.neu) }}</div>
+                  <div class="progress-bar progress-bar-positive" role="progressbar" ng-style="{ width : (detailedReport.rate_10.pos + '%') }">{{ percentageText(detailedReport.rate_10.pos) }}</div>
                 </div>
               </td>
             </tr>
@@ -289,9 +289,9 @@ session_start();
               <td style="width:350px;">&nbsp;&nbsp;Participation in the discussion</td>
               <td>
                 <div class="progress">
-                  <div class="progress-bar progress-bar-negative" role="progressbar" ng-style="{ width : (detailedReport.rate_11.neg + '%') }">{{ detailedReport.rate_11.neg + '%' }}</div>
-                  <div class="progress-bar progress-bar-neutral" role="progressbar" ng-style="{ width : (detailedReport.rate_11.neu + '%') }">{{ detailedReport.rate_11.neu + '%' }}</div>
-                  <div class="progress-bar progress-bar-positive" role="progressbar" ng-style="{ width : (detailedReport.rate_11.pos + '%') }">{{ detailedReport.rate_11.pos + '%' }}</div>
+                  <div class="progress-bar progress-bar-negative" role="progressbar" ng-style="{ width : (detailedReport.rate_11.neg + '%') }">{{ percentageText(detailedReport.rate_11.neg) }}</div>
+                  <div class="progress-bar progress-bar-neutral" role="progressbar" ng-style="{ width : (detailedReport.rate_11.neu + '%') }">{{ percentageText(detailedReport.rate_11.neu) }}</div>
+                  <div class="progress-bar progress-bar-positive" role="progressbar" ng-style="{ width : (detailedReport.rate_11.pos + '%') }">{{ percentageText(detailedReport.rate_11.pos) }}</div>
                 </div>
               </td>
             </tr>
@@ -410,25 +410,9 @@ session_start();
 
               $scope.detailedReport = info;
 
-              let options = {
-                scale: 2
-              };
-
-              setTimeout(() => {
-                html2canvas(document.getElementById('main'), options).then(function(canvas) {
-
-                  let imageBase64 = canvas.toDataURL('image/png');
-
-                  setTimeout(() => {
-
-                    $('#main').html('<img src="' + imageBase64 + '" style="width:100%">');
-
-                    setTimeout(function() {
-                      window.print();
-                    }, 1000);
-                  });
-                });
-              }, 1000);
+              setTimeout(function() {
+                window.print();
+              }, 1500);
             } else {
               $scope.detailedReport = {};
             }
@@ -456,6 +440,15 @@ session_start();
           pos: posPercentage,
           neu: neuPercentage
         };
+      };
+
+      $scope.percentageText = (percentage) => {
+
+        if (percentage == 0) {
+          return '';
+        }
+
+        return percentage + '%';
       };
 
       $scope.retrieveDetails();
