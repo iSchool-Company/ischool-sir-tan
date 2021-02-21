@@ -257,4 +257,8 @@ hr {
   body {
     -webkit-print-color-adjust: exact;
   }
+
+  tr {
+    page-break-inside: auto;
+  }
 }

@@ -16,7 +16,6 @@ session_start();
   <script src="../../frameworks/JQuery 3.1.1/jquery.min.js"></script>
   <script src="../../frameworks/Bootstrap 3.3.7/js/bootstrap.min.js"></script>
   <script src="../../frameworks/AngularJS v1.8.2/angular.min.js"></script>
-  <script src="../../frameworks/html2canvas 1.0.0-rc.7/html2canvas.min.js"></script>
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/navbar.css">
   <link rel="stylesheet" href="css/sidebar.css">
@@ -24,9 +23,7 @@ session_start();
 
   <style>
     #main {
-      width: 900px;
-      margin: auto;
-      margin-top: 50px;
+      margin: 50px 25px;
     }
 
     .rate-picker {
@@ -48,7 +45,7 @@ session_start();
     }
 
     .criteria-table {
-      width: 90%;
+      width: 100%;
     }
 
     .criteria-table td {
@@ -360,6 +357,19 @@ session_start();
 
   </div>
 
+  <div id="loading_modal" class="modal fade" style="margin-top:72px;" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+
+        <div class="modal-body">
+          <div class="text-center">
+            <img src="../pictures/modules/loading2.gif" style="width:50px;">
+            <h4>Please Wait.....</h4>
+          </div>
+        </div>
+
+      </div>
+    </div>
   </div>
 
   <script>
@@ -377,6 +387,8 @@ session_start();
 
   <script>
     var app = angular.module('mainApp', []);
+
+    $('#loading_modal').modal();
 
     app.controller('reportsCtrl', function($scope, $http) {
 
@@ -416,6 +428,8 @@ session_start();
             } else {
               $scope.detailedReport = {};
             }
+
+            $('#loading_modal').modal('hide');
           });
       };
 

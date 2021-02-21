@@ -16,6 +16,10 @@ session_start();
   <script src="../../frameworks/JQuery 3.1.1/jquery.min.js"></script>
   <script src="../../frameworks/Bootstrap 3.3.7/js/bootstrap.min.js"></script>
   <script src="../../frameworks/AngularJS v1.8.2/angular.min.js"></script>
+  <link rel="stylesheet" href="../../frameworks/Chartist 0.11.0/chartist.min.css">
+  <script src="../../frameworks/Chartist 0.11.0/chartist.min.js"></script>
+  <link rel="stylesheet" href="../../frameworks/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.css">
+  <script src="../../frameworks/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.min.js"></script>
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/navbar.css">
   <link rel="stylesheet" href="css/sidebar.css">
@@ -137,7 +141,7 @@ session_start();
                   </a>
                 </li>
 
-                <li id="per_module" class="active">
+                <li id="per_teacher" class="active">
                   <a data-toggle="tab" href="#per_teacher_content">
                     <span class="text-main-black">Per Teacher</span>
                   </a>
@@ -159,7 +163,7 @@ session_start();
 
               <div class="tab-content">
 
-                <div id="per_taecher_content" class="tab-pane fade in active">
+                <div id="per_teacher_content" class="tab-pane fade in active">
 
                   <div style="margin-top:20px;">
 
@@ -437,6 +441,34 @@ session_start();
 
                 </div>
 
+                <div id="summary_content" class="tab-pane fade in">
+
+                  <div style="margin-top:20px;">
+
+                    <h4 class="text-center" ng-if="!summaryFinished">Retrieving data please wait...</h4>
+
+                    <br>
+                    <br>
+                    <div id="summary_bar"></div>
+                    <br>
+                    <br>
+                    <div id="summary_line"></div>
+                    <br>
+                    <br>
+
+                  </div>
+
+                  <div class="pull-right">
+                    <button class="btn btn-success" type="button" ng-click="printSummarized()">
+                      <span class="fa fa-print"></span> Print
+                    </button>
+                  </div>
+                  <div class="clearfix"></div>
+
+                </div>
+
+                <div id="detailed_content"></div>
+
               </div>
 
             </div>
@@ -464,105 +496,7 @@ session_start();
   <script src="js/nav_manipulator.js"></script>
   <script src="js/main_routing.js"></script>
 
-  <script>
-    var app = angular.module('mainApp', []);
-
-    app.controller('reportsCtrl', function($scope, $http) {
-
-      $scope.retrieveClassrooms = () => {
-
-        $http.get('database/classrooms/retrieve/display.php')
-          .then(function(response) {
-
-            let data = response.data;
-
-            if (data.response === 'found') {
-
-              $scope.classrooms = data.classrooms;
-
-              if ($scope.classrooms.length > 0) {
-                $scope.forTeacherSelected = $scope.classrooms[0];
-                $scope.retrieveDetails($scope.forTeacherSelected);
-              }
-            }
-          });
-      };
-
-      $scope.retrieveDetails = (classroom) => {
-
-        $http.get('database/reports/retrieve/detailed_report.php?classroom_id=' + classroom.id)
-          .then(function(response) {
-
-            let data = response.data;
-
-            if (data.response === 'found') {
-
-              let info = data.info;
-              let respondents = info.respondents;
-
-              info.rate_1 = $scope.convertToPercentage(info.rate_1, respondents);
-              info.rate_2 = $scope.convertToPercentage(info.rate_2, respondents);
-              info.rate_3 = $scope.convertToPercentage(info.rate_3, respondents);
-              info.rate_4 = $scope.convertToPercentage(info.rate_4, respondents);
-              info.rate_5 = $scope.convertToPercentage(info.rate_5, respondents);
-              info.rate_6 = $scope.convertToPercentage(info.rate_6, respondents);
-              info.rate_7 = $scope.convertToPercentage(info.rate_7, respondents);
-              info.rate_8 = $scope.convertToPercentage(info.rate_8, respondents);
-              info.rate_9 = $scope.convertToPercentage(info.rate_9, respondents);
-              info.rate_10 = $scope.convertToPercentage(info.rate_10, respondents);
-              info.rate_11 = $scope.convertToPercentage(info.rate_11, respondents);
-
-              info.sentiment_analysis = $scope.convertToPercentage(info.sentiment_analysis, respondents);
-
-              $scope.detailedReport = info;
-            } else {
-              $scope.detailedReport = {};
-            }
-          });
-      };
-
-      $scope.convertToPercentage = (rate, respondents) => {
-
-        if (respondents == 0) {
-          return {
-            neg: 0,
-            pos: 0,
-            neu: 0
-          };
-        }
-
-        let neg = rate.neg;
-        let pos = rate.pos;
-        let negPercentage = Math.round((neg / respondents) * 100);
-        let posPercentage = Math.round((pos / respondents) * 100);
-        let neuPercentage = 100 - negPercentage - posPercentage;
-
-        return {
-          neg: negPercentage,
-          pos: posPercentage,
-          neu: neuPercentage
-        };
-      };
-
-      $scope.printDetailed = () => {
-
-        let url = 'detailed_report.php?classroomId=' + $scope.forTeacherSelected.id;
-
-        window.open(url);
-      };
-
-      $scope.percentageText = (percentage) => {
-
-        if (percentage == 0) {
-          return '';
-        }
-
-        return percentage + '%';
-      };
-
-      $scope.retrieveClassrooms();
-    });
-  </script>
+  <script src="js/reports/main.js"></script>
 
 </body>
 
