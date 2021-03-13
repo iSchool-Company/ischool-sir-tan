@@ -1,11 +1,11 @@
 <?php
 
-$server_name = 'localhost';
-$db_username = 'root';
-$db_password = '';
-$db_name = 'ischool_temp';
+$serverName = 'eyw6324oty5fsovx.cbetxkdyhwsb.us-east-1.rds.amazonaws.com';
+$dbUsername = 'ypukfa5dwp20pcwh';
+$dbPassword = 'd0cxqu0wdu0mhlr4';
+$dbName = 'mw8wu1416wd1n7ke';
 
-$connection = new mysqli($server_name, $db_username, $db_password, $db_name);
+$connection = new mysqli($serverName, $dbUsername, $dbPassword, $dbName);
 
 if ($connection->connect_error) {
 
