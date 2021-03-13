@@ -1,9 +1,9 @@
 <?php
 
-$serverName = 'localhost';
-$dbUsername = 'root';
-$dbPassword = '';
-$dbName = 'ischool_temp';
+$serverName = 'eyw6324oty5fsovx.cbetxkdyhwsb.us-east-1.rds.amazonaws.com';
+$dbUsername = 'ypukfa5dwp20pcwh';
+$dbPassword = 'd0cxqu0wdu0mhlr4';
+$dbName = 'mw8wu1416wd1n7ke';
 
 $connection = new mysqli($serverName, $dbUsername, $dbPassword, $dbName);
 
