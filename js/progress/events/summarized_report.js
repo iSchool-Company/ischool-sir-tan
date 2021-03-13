@@ -1,10 +1,13 @@
 const barChartOptions = {
-  seriesBarDistance: 10,
+  seriesBarDistance: 25,
   fullWidth: true,
   chartPadding: {
     left: 50,
     right: 50
-  }
+  },
+  plugins: [
+    Chartist.plugins.tooltip()
+  ]
 };
 
 const lineChartOptions = {

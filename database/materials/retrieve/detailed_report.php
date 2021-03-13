@@ -2,11 +2,19 @@
 
 require '../../connection.php';
 
+function microseconds()
+{
+  $mt = explode(' ', microtime());
+  return ((int)$mt[1]) * 1000000 + ((int)round($mt[0] * 1000000));
+}
+
 if (
   $_SERVER['REQUEST_METHOD'] === 'GET'
   &&
-  isset($_GET['materials_id'],
-  $_GET['classroom_id'])
+  isset(
+    $_GET['materials_id'],
+    $_GET['classroom_id']
+  )
 ) {
 
   $pythonDir = '../../../python/';
@@ -93,10 +101,9 @@ if (
     $content
   );
 
-  $fileName = "detailed-$classroomId-$materialsId.txt";
-  $fileNameDir = "$pythonDir$fileName";
-
-  $file = fopen($fileNameDir, 'w');
+  $toBeProcessed = [
+    'contents' => []
+  ];
 
   while ($statement->fetch()) {
 
@@ -108,15 +115,28 @@ if (
     $data['rate_4'][$rate_4]++;
     $data['rate_5'][$rate_5]++;
 
-    file_put_contents($fileNameDir, $content);
+    $toBeProcessed['contents'][] = $content;
+  }
 
-    $pythonCommand = 'python ' . $pythonDir . 'sentiment_analysis.py ' . $fileName;
+  $ms = microseconds();
+  $fileName = "detailed-$ms.txt";
+  $fileNameDir = "$pythonDir$fileName";
 
-    $scoreJSONString = shell_exec($pythonCommand);
+  $file = fopen($fileNameDir, 'w');
 
-    $scoreJSON = json_decode($scoreJSONString, true);
+  file_put_contents($fileNameDir, json_encode($toBeProcessed));
 
-    $compound = $scoreJSON['compound'];
+  $pythonCommand = 'python ' . $pythonDir . 'sentiment_analysis_batch.py ' . $fileName;
+
+  $stringOutput = shell_exec($pythonCommand);
+
+  $jsonOutput = json_decode($stringOutput, true);
+
+  $scores = $jsonOutput['scores'];
+
+  foreach ($scores as &$score) {
+
+    $compound = $score['compound'];
 
     if ($compound >= 0.2) {
       $data['sentiment_analysis']['pos']++;

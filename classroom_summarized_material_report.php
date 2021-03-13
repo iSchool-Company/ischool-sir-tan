@@ -16,7 +16,7 @@ session_start();
 
   <style>
     #main {
-      margin: 50px 25px;
+      margin: 25px;
     }
 
     .ct-series-a .ct-bar,
@@ -65,6 +65,21 @@ session_start();
     </div>
   </div>
 
+  <div id="loading_modal" class="modal fade" style="margin-top:72px;" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+
+        <div class="modal-body">
+          <div class="text-center">
+            <img src="pictures/modules/loading2.gif" style="width:50px;">
+            <h4>Please Wait.....</h4>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
   <!-- Main Variables -->
   <script>
     var classroomId = <?php echo isset($_SESSION['classroom_id']) ? $_SESSION['classroom_id'] : '0' ?>;
@@ -74,6 +89,8 @@ session_start();
     var crStatus = '';
 
     $(document).ready(function() {
+
+      $('#loading_modal').modal();
 
       $('#back').hover(function() {
         $('.breadcrumb [href="my_classrooms.php"]').css('z-index', '6');
@@ -86,6 +103,8 @@ session_start();
       let classroomId = decodeURIComponent($.urlParam('classroom_id'));
 
       retrieveSummarizedReview(classroomId, function() {
+
+        $('#loading_modal').modal('hide');
 
         renderCharts();
 

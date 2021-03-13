@@ -13,6 +13,8 @@ session_start();
   ?>
   <link rel="stylesheet" href="../frameworks/Chartist 0.11.0/chartist.min.css">
   <script src="../frameworks/Chartist 0.11.0/chartist.min.js"></script>
+  <link rel="stylesheet" href="../frameworks/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.css">
+  <script src="../frameworks/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.min.js"></script>
 
   <style>
     .rate-picker {
@@ -163,7 +165,7 @@ session_start();
                         <div class="form-group has-feedback">
                           <label class="col-sm-5 control-label">Choose a Material:</label>
                           <div class="col-sm-7">
-                            <select class="form-control" name="materials"></select>
+                            <select class="form-control" name="materials" disabled></select>
                           </div>
                         </div>
                       </div>
@@ -174,170 +176,179 @@ session_start();
 
                   <hr>
 
-                  <div class="row">
+                  <p id="per_module_loading" class="text-center">
+                    <br>
+                    <img src="./pictures/modules/loading2.gif" style="width:50px;">
+                  </p>
 
-                    <div class="col-sm-6">
-                      <p><b>Material Name:</b> <span id="detailed_material_name"></span></p>
+                  <div id="per_module_main" style="display:none;">
+
+                    <div class="row">
+
+                      <div class="col-sm-6">
+                        <p><b>Material Name:</b> <span id="detailed_material_name"></span></p>
+                      </div>
+
+                      <div class="col-sm-6">
+                        <p><b>Total Respondents:</b> <b id="detailed_respondents_count">0</b> out of <span id="detailed_total_count">0</span> students</p>
+                      </div>
+
                     </div>
 
-                    <div class="col-sm-6">
-                      <p><b>Total Respondents:</b> <b id="detailed_respondents_count">0</b> out of <span id="detailed_total_count">0</span> students</p>
-                    </div>
+                    <hr>
 
-                  </div>
+                    <h4><b>Overall Rate for this Material:</b></h4>
 
-                  <hr>
-
-                  <h4><b>Overall Rate for this Material:</b></h4>
-
-                  <div>
-                    <div class="rate-picker">
-                      <div class="row">
-                        <div class="col-xs-4">
-                          <div class="rate-button rate-negative static">
-                            <span class="rate-icon fa fa-frown-o"></span>
-                            <br>
-                            <h3 class="rate-count"><b id="detailed_rate_neg">0</b></h3>
+                    <div>
+                      <div class="rate-picker">
+                        <div class="row">
+                          <div class="col-xs-4">
+                            <div class="rate-button rate-negative static">
+                              <span class="rate-icon fa fa-frown-o"></span>
+                              <br>
+                              <h3 class="rate-count"><b id="detailed_rate_neg">0</b></h3>
+                            </div>
                           </div>
-                        </div>
-                        <div class="col-xs-4">
-                          <div class="rate-button rate-neutral static">
-                            <span class="rate-icon fa fa-meh-o"></span>
-                            <br>
-                            <h3 class="rate-count"><b id="detailed_rate_neu">0</b></h3>
+                          <div class="col-xs-4">
+                            <div class="rate-button rate-neutral static">
+                              <span class="rate-icon fa fa-meh-o"></span>
+                              <br>
+                              <h3 class="rate-count"><b id="detailed_rate_neu">0</b></h3>
+                            </div>
                           </div>
-                        </div>
-                        <div class="col-xs-4">
-                          <div class="rate-button rate-positive static">
-                            <span class="rate-icon fa fa-smile-o"></span>
-                            <br>
-                            <h3 class="rate-count"><b id="detailed_rate_pos">0</b></h3>
+                          <div class="col-xs-4">
+                            <div class="rate-button rate-positive static">
+                              <span class="rate-icon fa fa-smile-o"></span>
+                              <br>
+                              <h3 class="rate-count"><b id="detailed_rate_pos">0</b></h3>
+                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
+
+                    <hr>
+
+                    <h4><b>Rating per Category for this Material:</b></h4>
+
+                    <table class="criteria-table">
+
+                      <tbody>
+
+                        <tr>
+                          <td style="width:350px;">Objectives are clearly stated</td>
+                          <td>
+                            <div class="progress">
+                              <div id="detailed_rate_1_neg" class="progress-bar progress-bar-negative" role="progressbar" style="width:0%"></div>
+                              <div id="detailed_rate_1_neu" class="progress-bar progress-bar-neutral" role="progressbar" style="width:0%"></div>
+                              <div id="detailed_rate_1_pos" class="progress-bar progress-bar-positive" role="progressbar" style="width:0%"></div>
+                            </div>
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <td style="width:350px;">Content is aligned with course</td>
+                          <td>
+                            <div class="progress">
+                              <div id="detailed_rate_2_neg" class="progress-bar progress-bar-negative" role="progressbar" style="width:0%"></div>
+                              <div id="detailed_rate_2_neu" class="progress-bar progress-bar-neutral" role="progressbar" style="width:0%"></div>
+                              <div id="detailed_rate_2_pos" class="progress-bar progress-bar-positive" role="progressbar" style="width:0%"></div>
+                            </div>
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <td style="width:350px;">Content is well organized</td>
+                          <td>
+                            <div class="progress">
+                              <div id="detailed_rate_3_neg" class="progress-bar progress-bar-negative" role="progressbar" style="width:0%"></div>
+                              <div id="detailed_rate_3_neu" class="progress-bar progress-bar-neutral" role="progressbar" style="width:0%"></div>
+                              <div id="detailed_rate_3_pos" class="progress-bar progress-bar-positive" role="progressbar" style="width:0%"></div>
+                            </div>
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <td style="width:350px;">Instructions are clearly stated</td>
+                          <td>
+                            <div class="progress">
+                              <div id="detailed_rate_4_neg" class="progress-bar progress-bar-negative" role="progressbar" style="width:0%"></div>
+                              <div id="detailed_rate_4_neu" class="progress-bar progress-bar-neutral" role="progressbar" style="width:0%"></div>
+                              <div id="detailed_rate_4_pos" class="progress-bar progress-bar-positive" role="progressbar" style="width:0%"></div>
+                            </div>
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <td style="width:350px;">Activities are aligned with content</td>
+                          <td>
+                            <div class="progress">
+                              <div id="detailed_rate_5_neg" class="progress-bar progress-bar-negative" role="progressbar" style="width:0%"></div>
+                              <div id="detailed_rate_5_neu" class="progress-bar progress-bar-neutral" role="progressbar" style="width:0%"></div>
+                              <div id="detailed_rate_5_pos" class="progress-bar progress-bar-positive" role="progressbar" style="width:0%"></div>
+                            </div>
+                          </td>
+                        </tr>
+
+                      </tbody>
+
+                    </table>
+
+                    <hr>
+
+                    <h4><b>Sentiment Analysis Based on Feedback:</b></h4>
+
+                    <table class="criteria-table">
+
+                      <tbody>
+
+                        <tr>
+                          <td style="width:350px;">Negative</td>
+                          <td>
+                            <div id="detailed_sentiment_analysis_neg" class="progress" style="width:0%">
+                              <div class="progress-bar progress-bar-negative" role="progressbar" style="width:100%"></div>
+                            </div>
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <td style="width:350px;">Neutral</td>
+                          <td>
+                            <div id="detailed_sentiment_analysis_neu" class="progress" style="width:0%">
+                              <div class="progress-bar progress-bar-neutral" role="progressbar" style="width:100%"></div>
+                            </div>
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <td style="width:350px;">Positive</td>
+                          <td>
+                            <div id="detailed_sentiment_analysis_pos" class="progress" style="width:0%">
+                              <div class="progress-bar progress-bar-positive" role="progressbar" style="width:100%"></div>
+                            </div>
+                          </td>
+                        </tr>
+
+                      </tbody>
+
+                    </table>
+
+                    <hr>
+
+                    <p class="text-right" style="width:90%;">
+                      Legends:
+                      &nbsp;
+                      <span class="legend-item progress-bar-negative"></span>
+                      Negative
+                      &nbsp;
+                      <span class="legend-item progress-bar-neutral"></span>
+                      Neutral
+                      &nbsp;
+                      <span class="legend-item progress-bar-positive"></span>
+                      Positive
+                    </p>
+
                   </div>
-
-                  <hr>
-
-                  <h4><b>Rating per Category for this Material:</b></h4>
-
-                  <table class="criteria-table">
-
-                    <tbody>
-
-                      <tr>
-                        <td style="width:350px;">Objectives are clearly stated</td>
-                        <td>
-                          <div class="progress">
-                            <div id="detailed_rate_1_neg" class="progress-bar progress-bar-negative" role="progressbar" style="width:0%"></div>
-                            <div id="detailed_rate_1_neu" class="progress-bar progress-bar-neutral" role="progressbar" style="width:0%"></div>
-                            <div id="detailed_rate_1_pos" class="progress-bar progress-bar-positive" role="progressbar" style="width:0%"></div>
-                          </div>
-                        </td>
-                      </tr>
-
-                      <tr>
-                        <td style="width:350px;">Content is aligned with course</td>
-                        <td>
-                          <div class="progress">
-                            <div id="detailed_rate_2_neg" class="progress-bar progress-bar-negative" role="progressbar" style="width:0%"></div>
-                            <div id="detailed_rate_2_neu" class="progress-bar progress-bar-neutral" role="progressbar" style="width:0%"></div>
-                            <div id="detailed_rate_2_pos" class="progress-bar progress-bar-positive" role="progressbar" style="width:0%"></div>
-                          </div>
-                        </td>
-                      </tr>
-
-                      <tr>
-                        <td style="width:350px;">Content is well organized</td>
-                        <td>
-                          <div class="progress">
-                            <div id="detailed_rate_3_neg" class="progress-bar progress-bar-negative" role="progressbar" style="width:0%"></div>
-                            <div id="detailed_rate_3_neu" class="progress-bar progress-bar-neutral" role="progressbar" style="width:0%"></div>
-                            <div id="detailed_rate_3_pos" class="progress-bar progress-bar-positive" role="progressbar" style="width:0%"></div>
-                          </div>
-                        </td>
-                      </tr>
-
-                      <tr>
-                        <td style="width:350px;">Instructions are clearly stated</td>
-                        <td>
-                          <div class="progress">
-                            <div id="detailed_rate_4_neg" class="progress-bar progress-bar-negative" role="progressbar" style="width:0%"></div>
-                            <div id="detailed_rate_4_neu" class="progress-bar progress-bar-neutral" role="progressbar" style="width:0%"></div>
-                            <div id="detailed_rate_4_pos" class="progress-bar progress-bar-positive" role="progressbar" style="width:0%"></div>
-                          </div>
-                        </td>
-                      </tr>
-
-                      <tr>
-                        <td style="width:350px;">Activities are aligned with content</td>
-                        <td>
-                          <div class="progress">
-                            <div id="detailed_rate_5_neg" class="progress-bar progress-bar-negative" role="progressbar" style="width:0%"></div>
-                            <div id="detailed_rate_5_neu" class="progress-bar progress-bar-neutral" role="progressbar" style="width:0%"></div>
-                            <div id="detailed_rate_5_pos" class="progress-bar progress-bar-positive" role="progressbar" style="width:0%"></div>
-                          </div>
-                        </td>
-                      </tr>
-
-                    </tbody>
-
-                  </table>
-
-                  <hr>
-
-                  <h4><b>Sentiment Analysis Based on Feedback:</b></h4>
-
-                  <table class="criteria-table">
-
-                    <tbody>
-
-                      <tr>
-                        <td style="width:350px;">Negative</td>
-                        <td>
-                          <div id="detailed_sentiment_analysis_neg" class="progress" style="width:0%">
-                            <div class="progress-bar progress-bar-negative" role="progressbar" style="width:100%"></div>
-                          </div>
-                        </td>
-                      </tr>
-
-                      <tr>
-                        <td style="width:350px;">Neutral</td>
-                        <td>
-                          <div id="detailed_sentiment_analysis_neu" class="progress" style="width:0%">
-                            <div class="progress-bar progress-bar-neutral" role="progressbar" style="width:100%"></div>
-                          </div>
-                        </td>
-                      </tr>
-
-                      <tr>
-                        <td style="width:350px;">Positive</td>
-                        <td>
-                          <div id="detailed_sentiment_analysis_pos" class="progress" style="width:0%">
-                            <div class="progress-bar progress-bar-positive" role="progressbar" style="width:100%"></div>
-                          </div>
-                        </td>
-                      </tr>
-
-                    </tbody>
-
-                  </table>
-
-                  <hr>
-
-                  <p class="text-right" style="width:90%;">
-                    Legends:
-                    &nbsp;
-                    <span class="legend-item progress-bar-negative"></span>
-                    Negative
-                    &nbsp;
-                    <span class="legend-item progress-bar-neutral"></span>
-                    Neutral
-                    &nbsp;
-                    <span class="legend-item progress-bar-positive"></span>
-                    Positive
-                  </p>
 
                 </div>
 
@@ -374,7 +385,7 @@ session_start();
                         <div class="form-group has-feedback">
                           <label class="col-sm-5 control-label">Choose a Material:</label>
                           <div class="col-sm-7">
-                            <select class="form-control" name="materials"></select>
+                            <select class="form-control" name="materials" disabled></select>
                           </div>
                         </div>
                       </div>
@@ -385,36 +396,45 @@ session_start();
 
                   <hr>
 
-                  <div class="row">
+                  <p id="feedbacks_loading" class="text-center">
+                    <br>
+                    <img src="./pictures/modules/loading2.gif" style="width:50px;">
+                  </p>
 
-                    <div class="col-sm-6">
-                      <p><b>Material Name:</b> <span id="feedback_material_name"></span></p>
+                  <div id="feedbacks_main" style="display:none;">
+
+                    <div class="row">
+
+                      <div class="col-sm-6">
+                        <p><b>Material Name:</b> <span id="feedback_material_name"></span></p>
+                      </div>
+
+                      <div class="col-sm-6">
+                        <p><b>Total Respondents:</b> <b id="feedback_respondents_count">0</b> out of <span id="feedback_total_count">0</span> students</p>
+                      </div>
+
                     </div>
 
-                    <div class="col-sm-6">
-                      <p><b>Total Respondents:</b> <b id="feedback_respondents_count">0</b> out of <span id="feedback_total_count">0</span> students</p>
-                    </div>
+                    <hr>
+
+                    <table class="table table-bordered table-condensed">
+                      <tbody>
+                        <tr>
+                          <td style="width: 200px">Sad</td>
+                          <td id="negative_feedbacks">Loading...</td>
+                        </tr>
+                        <tr>
+                          <td>Neutral</td>
+                          <td id="neutral_feedbacks">Loading...</td>
+                        </tr>
+                        <tr>
+                          <td>Happy</td>
+                          <td id="positive_feedbacks">Loading...</td>
+                        </tr>
+                      </tbody>
+                    </table>
 
                   </div>
-
-                  <hr>
-
-                  <table class="table table-bordered table-condensed">
-                    <tbody>
-                      <tr>
-                        <td style="width: 200px">Sad</td>
-                        <td id="negative_feedbacks"></td>
-                      </tr>
-                      <tr>
-                        <td>Neutral</td>
-                        <td id="neutral_feedbacks"></td>
-                      </tr>
-                      <tr>
-                        <td>Happy</td>
-                        <td id="positive_feedbacks"></td>
-                      </tr>
-                    </tbody>
-                  </table>
 
                 </div>
 

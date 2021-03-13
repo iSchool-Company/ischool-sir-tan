@@ -11,8 +11,8 @@ session_start();
   <?php
   require 'meta.php';
   ?>
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.css">
-  <script src="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
+  <link rel="stylesheet" href="../frameworks/Chartist 0.11.0/chartist.min.css">
+  <script src="../frameworks/Chartist 0.11.0/chartist.min.js"></script>
 
   <style>
     @media print {

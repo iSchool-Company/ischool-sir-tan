@@ -6,7 +6,7 @@ if (
   $_SERVER['REQUEST_METHOD'] === 'GET'
 ) {
 
-  $command = 'SELECT c.id, c.class, c.subject, c.description, c.date_end, c.is_review_open, u.first_name, u.middle_name, u.last_name FROM classrooms AS c LEFT JOIN users AS u ON c.teacher_id = u.id WHERE c.is_deleted = 0';
+  $command = 'SELECT c.id, c.class, c.subject, c.description, c.date_end, c.is_review_open, u.first_name, u.middle_name, u.last_name FROM classrooms AS c LEFT JOIN users AS u ON c.teacher_id = u.id WHERE c.is_deleted = 0 ORDER BY u.first_name, u.last_name, c.class, c.subject';
   $statement = $connection->prepare($command);
   $statement->execute();
   $statement->bind_result(

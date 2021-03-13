@@ -7,13 +7,15 @@ require 'connection.php';
 if (
   $_SERVER['REQUEST_METHOD'] === 'POST'
   &&
-  isset($_POST['type'],
-  $_POST['first_name'],
-  $_POST['middle_name'],
-  $_POST['last_name'],
-  $_POST['gender'],
-  $_POST['username'],
-  $_POST['password'])
+  isset(
+    $_POST['type'],
+    $_POST['first_name'],
+    $_POST['middle_name'],
+    $_POST['last_name'],
+    $_POST['gender'],
+    $_POST['username'],
+    $_POST['password']
+  )
 ) {
 
   $type = $_POST['type'];
@@ -40,6 +42,8 @@ if (
     ];
   } else {
 
+    $hashedPassword = md5($password);
+
     $command = 'INSERT INTO users(type, first_name, middle_name, last_name, gender, username, password, profile_picture, last_date_time_online) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)';
 
     $statement = $connection->prepare($command);
@@ -51,7 +55,7 @@ if (
       $lastName,
       $gender,
       $username,
-      md5($password),
+      $hashedPassword,
       $profilePicture,
       $dateNow
     );

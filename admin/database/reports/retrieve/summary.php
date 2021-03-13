@@ -2,6 +2,12 @@
 
 require '../../connection.php';
 
+function microseconds()
+{
+  $mt = explode(' ', microtime());
+  return ((int)$mt[1]) * 1000000 + ((int)round($mt[0] * 1000000));
+}
+
 if (
   $_SERVER['REQUEST_METHOD'] === 'GET'
 ) {
@@ -50,14 +56,11 @@ if (
     $statement->close();
   }
 
+  $groups = [];
+
   foreach ($data['classrooms'] as &$cr) {
 
     $classroomId = $cr['id'];
-
-    $fileName = "summary-cr-$classroomId.txt";
-    $fileNameDir = "$pythonDir$fileName";
-
-    $file = fopen($fileNameDir, 'w');
 
     $command = 'SELECT cr.content FROM classrooms AS c INNER JOIN classrooms_reviews AS cr ON c.id = cr.classroom_id WHERE c.id = ?';
     $statement = $connection->prepare($command);
@@ -69,31 +72,54 @@ if (
     $cr['neu'] = 0;
     $cr['pos'] = 0;
 
+    $group = [];
+
     while ($statement->fetch()) {
-
-      file_put_contents($fileNameDir, $content);
-
-      $pythonCommand = 'python ' . $pythonDir . 'sentiment_analysis.py ' . $fileName;
-
-      $scoreJSONString = shell_exec($pythonCommand);
-
-      $scoreJSON = json_decode($scoreJSONString, true);
-
-      $compound = $scoreJSON['compound'];
-
-      if ($compound >= 0.2) {
-        $cr['pos']++;
-      } else if ($compound <= -0.2) {
-        $cr['neg']++;
-      } else {
-        $cr['neu']++;
-      }
+      $group[] = $content;
     }
 
-    fclose($file);
-
-    unlink($fileNameDir);
+    $groups[] = $group;
   }
+
+  $toBeProcessed = [
+    'groups' => $groups
+  ];
+
+  $ms = microseconds();
+  $fileName = "summary-cr-$ms.txt";
+  $fileNameDir = "$pythonDir$fileName";
+
+  $file = fopen($fileNameDir, 'w');
+
+  file_put_contents($fileNameDir, json_encode($toBeProcessed));
+
+  $pythonCommand = 'python ' . $pythonDir . 'sentiment_analysis_group.py ' . $fileName;
+
+  $stringOutput = shell_exec($pythonCommand);
+
+  $jsonOutput = json_decode($stringOutput, true);
+
+  $scores = $jsonOutput['groups'];
+
+  foreach ($scores as $key => $group) {
+
+    foreach ($group as $score) {
+
+      $compound = $score['compound'];
+
+      if ($compound >= 0.2) {
+        $data['classrooms'][$key]['pos']++;
+      } else if ($compound <= -0.2) {
+        $data['classrooms'][$key]['neg']++;
+      } else {
+        $data['classrooms'][$key]['neu']++;
+      }
+    }
+  }
+
+  fclose($file);
+
+  unlink($fileNameDir);
 
   $response = [
     'response' => $data === [] ? 'nothing' : 'found',

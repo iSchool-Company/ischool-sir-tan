@@ -23,7 +23,7 @@ session_start();
 
   <style>
     #main {
-      margin: 50px 25px;
+      margin: 25px;
     }
 
     .rate-picker {
@@ -105,7 +105,15 @@ session_start();
 
     <div class="panel-body">
 
-      <div style="margin-top:20px;">
+      <div style="margin-top:0px;">
+
+        <div class="text-center">
+          <img src="../pictures/modules/logo_banner.png" style="width: 150px;">
+        </div>
+
+        <br>
+        <hr>
+        <br>
 
         <div class="row">
 
@@ -115,7 +123,7 @@ session_start();
           </div>
 
           <div class="col-sm-6">
-            <p><b>Total Respondents:</b> <b ng-class="{'text-success' : (detailedReport.total < (detailedReport.respondents / 2)), 'text-danger' : (detailedReport.total >= (detailedReport.respondents / 2))}">{{ detailedReport.respondents == null ? 0 : detailedReport.respondents }}</b> out of {{ detailedReport.total }} students</p>
+            <p><b>Total Respondents:</b> <b ng-class="{'text-success' : (detailedReport.respondents >= (detailedReport.total / 2)), 'text-danger' : (detailedReport.respondents < (detailedReport.total / 2))}">{{ detailedReport.respondents == null ? 0 : detailedReport.respondents }}</b> out of {{ detailedReport.total }} students</p>
           </div>
 
         </div>

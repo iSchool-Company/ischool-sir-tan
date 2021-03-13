@@ -12,17 +12,16 @@ if (
   $_SERVER['REQUEST_METHOD'] === 'GET'
   &&
   isset(
-    $_GET['materials_id'],
     $_GET['classroom_id']
   )
 ) {
 
-  $pythonDir = '../../../python/';
+  $pythonDir = '../../../../python/';
 
-  $materialsId = $_GET['materials_id'];
   $classroomId = $_GET['classroom_id'];
   $data = [
-    'name' => '',
+    'classroom' => '',
+    'instructor' => '',
     'respondents' => 0,
     'total' => 0,
     'feedbacks' => [
@@ -32,16 +31,24 @@ if (
     ]
   ];
 
-  $command = 'SELECT file_name FROM materials WHERE id = ?';
+  $command = 'SELECT c.class, c.subject, u.first_name, u.middle_name, u.last_name FROM classrooms AS c LEFT JOIN users AS u ON c.teacher_id = u.id WHERE c.id = ?';
   $statement = $connection->prepare($command);
-  $statement->bind_param('i', $materialsId);
+  $statement->bind_param('i', $classroomId);
   $statement->execute();
-  $statement->bind_result($name);
+  $statement->bind_result(
+    $className,
+    $subjectName,
+    $firstName,
+    $middleName,
+    $lastName
+  );
 
   if ($statement->fetch()) {
-    $data['name'] = $name;
+    $data['classroom'] = $className . ' - ' . $subjectName;
+    $data['instructor'] = implode(' ', array($firstName, $middleName, $lastName));
   } else {
-    $data['name'] = 'Unknown';
+    $data['classroom'] = 'Unknown';
+    $data['instructor'] = 'Unknown';
   }
 
   $statement->close();
@@ -57,13 +64,12 @@ if (
 
   $statement->close();
 
-  $command = 'SELECT mr.content, mr.anonymous, u.username, u.first_name, u.middle_name FROM materials AS m INNER JOIN materials_reviews AS mr ON m.id = mr.material_id LEFT JOIN users AS u ON mr.student_id = u.id WHERE m.id = ? ORDER BY mr.anonymous';
+  $command = 'SELECT cr.content, u.username, u.first_name, u.middle_name FROM classrooms AS c INNER JOIN classrooms_reviews AS cr ON c.id = cr.classroom_id LEFT JOIN users AS u ON cr.student_id = u.id WHERE c.id = ? ORDER BY u.first_name, u.last_name';
   $statement = $connection->prepare($command);
-  $statement->bind_param('i', $materialsId);
+  $statement->bind_param('i', $classroomId);
   $statement->execute();
   $statement->bind_result(
     $content,
-    $anonymous,
     $username,
     $firstName,
     $lastName
@@ -78,7 +84,7 @@ if (
 
     $data['respondents']++;
 
-    $displayName = $anonymous == 1 ? 'Anonymous' : "$firstName $lastName (@$username)";
+    $displayName = "$firstName $lastName (@$username)";
 
     $feedback = [
       'displayName' => $displayName,
@@ -90,7 +96,7 @@ if (
   }
 
   $ms = microseconds();
-  $fileName = "feedback-$ms.txt";
+  $fileName = "feedback-cr-$ms.txt";
   $fileNameDir = "$pythonDir$fileName";
 
   $file = fopen($fileNameDir, 'w');

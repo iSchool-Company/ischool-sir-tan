@@ -1,5 +1,9 @@
 function resetDetailedReport() {
 
+  $('#report_form [name="materials"]').prop('disabled', true);
+  $('#per_module_loading').show();
+  $('#per_module_main').hide();
+
   let respondentsCount = $('#detailed_respondents_count');
   respondentsCount.text('0');
   respondentsCount.removeClass('text-success text-danger');
@@ -34,7 +38,12 @@ function resetCriteriaDetails(rateNum) {
 }
 
 function resetFeedbacks() {
-  $('#negative_feedbacks').html('');
-  $('#neutral_feedbacks').html('');
-  $('#positive_feedbacks').html('');
+
+  $('#feedback_form [name="materials"]').prop('disabled', true);
+  $('#feedbacks_loading').show();
+  $('#feedbacks_main').hide();
+
+  $('#negative_feedbacks').html('Loading...');
+  $('#neutral_feedbacks').html('Loading...');
+  $('#positive_feedbacks').html('Loading...');
 }

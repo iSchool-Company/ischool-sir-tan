@@ -1,5 +1,5 @@
 const barChartOptions = {
-  seriesBarDistance: 10,
+  seriesBarDistance: 25,
   fullWidth: true,
   chartPadding: {
     left: 50,
@@ -24,6 +24,7 @@ var app = angular.module('mainApp', []);
 
 app.controller('reportsCtrl', function ($scope, $http) {
 
+  $scope.detailedReport = {};
   $scope.summaryFinished = false;
 
   $scope.retrieveClassrooms = () => {
@@ -39,13 +40,17 @@ app.controller('reportsCtrl', function ($scope, $http) {
 
           if ($scope.classrooms.length > 0) {
             $scope.forTeacherSelected = $scope.classrooms[0];
+            $scope.feedbackSelected = $scope.classrooms[0];
             $scope.retrieveDetails($scope.forTeacherSelected);
+            $scope.retrieveFeedbacks($scope.feedbackSelected);
           }
         }
       });
   };
 
   $scope.retrieveDetails = (classroom) => {
+
+    $scope.detailedReport = null;
 
     $http.get('database/reports/retrieve/detailed_report.php?classroom_id=' + classroom.id)
       .then(function (response) {
@@ -247,7 +252,43 @@ app.controller('reportsCtrl', function ($scope, $http) {
     };
 
     new Chartist.Bar('#summary_line', data, barChartOptions, responsiveOptions);
-  }
+  };
+
+  $scope.printSummarized = () => {
+
+    let url = 'summarized_report.php';
+
+    window.open(url);
+  };
+
+  $scope.retrieveFeedbacks = (classroom) => {
+
+    if (classroom == null) {
+      return;
+    }
+
+    $scope.feedbackInfo = null;
+
+    $http.get('database/reports/retrieve/feedbacks.php?classroom_id=' + classroom.id)
+      .then(function (response) {
+
+        let data = response.data;
+        let status = data.response;
+
+        if (status == 'found') {
+          $scope.feedbackInfo = data.info;
+        } else {
+          $scope.feedbackInfo = {};
+        }
+      });
+  };
+
+  $scope.printFeedbacks = () => {
+
+    let url = 'feedback_report.php?classroomId=' + $scope.feedbackSelected.id;
+
+    window.open(url);
+  };
 
   $scope.activeTab = 'per_module';
 
@@ -266,4 +307,5 @@ app.controller('reportsCtrl', function ($scope, $http) {
 
   $scope.retrieveClassrooms();
   $scope.retrieveSummary();
+  $scope.retrieveFeedbacks();
 });

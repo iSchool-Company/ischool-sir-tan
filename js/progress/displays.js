@@ -29,6 +29,10 @@ function showDetailedReport(data) {
 
   $('#detailed_total_count').text(data.total);
 
+  $('#report_form [name="materials"]').prop('disabled', false);
+  $('#per_module_loading').hide();
+  $('#per_module_main').show();
+
   if (respondents === 0) {
     return;
   }
@@ -184,6 +188,14 @@ function showFeedbacks(data) {
   respondentsCount.addClass(respondents >= (total / 2) ? 'text-success' : 'text-danger');
 
   $('#feedback_total_count').text(data.total);
+
+  $('#negative_feedbacks').empty();
+  $('#neutral_feedbacks').empty();
+  $('#positive_feedbacks').empty();
+
+  $('#feedback_form [name="materials"]').prop('disabled', false);
+  $('#feedbacks_loading').hide();
+  $('#feedbacks_main').show();
 
   showFeedbackContent('negative_feedbacks', data.feedbacks.neg);
   showFeedbackContent('neutral_feedbacks', data.feedbacks.neu);

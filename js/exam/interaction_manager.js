@@ -16,7 +16,9 @@ function checkAnswer() {
 
   for (var i = 0; i < length; i++) {
 
-    if (choices[i].correct == 1 && answer == choices[i].value) {
+    let escapedChoice = choices[i].value.replace(/"/g, '&quot;');
+
+    if (choices[i].correct == 1 && answer == escapedChoice) {
 
       score++;
 

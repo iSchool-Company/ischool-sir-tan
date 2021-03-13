@@ -7,7 +7,7 @@ function clearEditModal(modal) {
 
 $(document).ready(function () {
 
-  $('[id$="_modal"]').on('hidden.bs.modal', function () {
+  $('[id$="_modal"]:not(#rate_modal)').on('hidden.bs.modal', function () {
 
     clearEditModal($(this));
   });
