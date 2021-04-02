@@ -6,7 +6,7 @@ session_start();
 
 <head>
 
-  <title>iSchool | Announcements</title>
+  <title>LMS | Announcements</title>
 
   <?php
   require 'meta.php';

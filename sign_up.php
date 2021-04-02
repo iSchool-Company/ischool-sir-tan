@@ -4,7 +4,7 @@
 
 <head>
 
-  <title>iSchool | <?php echo $_GET['register_type']; ?> Registration</title>
+  <title>LMS | <?php echo $_GET['register_type']; ?> Registration</title>
 
   <link rel="icon" href="pictures/modules/logo.png">
   <meta charset="utf-8">
@@ -109,7 +109,7 @@
       <div class="navbar-header">
 
         <a class="navbar-brand" href="index.php">
-          <img class="ischool-logo" src="pictures/modules/logo_banner.png" alt="iSchool" />
+          <img class="ischool-logo" src="pictures/modules/logo_banner.png" alt="LMS" />
         </a>
 
       </div>
@@ -344,7 +344,7 @@
 
         <div class="modal-body">
           <h4 class="text-center">
-            Welcome to iSchool
+            Welcome to LMS
             <span id="welcome_name"></span>!
           </h4>
         </div>

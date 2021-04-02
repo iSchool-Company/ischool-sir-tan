@@ -6,7 +6,7 @@ session_start();
 
 <head>
 
-  <title>iSchool | Report Print</title>
+  <title>LMS | Report Print</title>
 
   <link rel="icon" href="../pictures/modules/logo.png">
   <meta charset="utf-8">

@@ -6,7 +6,7 @@ session_start();
 
 <head>
 
-  <title>iSchool | Quizzes</title>
+  <title>LMS | Quizzes</title>
 
   <?php
   require 'meta.php';

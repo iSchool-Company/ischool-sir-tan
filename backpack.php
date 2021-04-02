@@ -6,7 +6,7 @@ session_start();
 
 <head>
 
-  <title>iSchool | Backpack</title>
+  <title>LMS | Backpack</title>
 
   <?php
   require 'meta.php';

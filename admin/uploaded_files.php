@@ -6,7 +6,7 @@ session_start();
 
 <head>
 
-  <title>iSchool | Uploaded Materials</title>
+  <title>LMS | Uploaded Materials</title>
 
   <link rel="icon" href="../pictures/modules/logo.png">
   <meta charset="utf-8">

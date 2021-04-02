@@ -6,7 +6,7 @@ session_start();
 
 <head>
 
-  <title>iSchool</title>
+  <title>LMS</title>
 
   <link rel="icon" href="../pictures/modules/logo.png">
   <meta charset="utf-8">
@@ -72,7 +72,7 @@ session_start();
 
   <div id="header">
     <a href="index.php" style="text-decoration:none;">
-      <img class="ischool-logo" src="../pictures/modules/logo_banner.png" alt="iSchool" />
+      <img class="ischool-logo" src="../pictures/modules/logo_banner.png" alt="LMS" />
     </a>
   </div>
 

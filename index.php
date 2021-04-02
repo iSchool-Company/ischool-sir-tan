@@ -6,7 +6,7 @@ session_start();
 
 <head>
 
-  <title>iSchool</title>
+  <title>LMS</title>
 
   <link rel="icon" href="pictures/modules/logo.png">
   <meta charset="utf-8">
@@ -82,7 +82,9 @@ session_start();
 
     img.carousel-image {
       position: absolute;
-      opacity: 0.5;
+      opacity: 0.6;
+      width: 100%;
+      object-fit: cover;
     }
 
     .carousel-caption {
@@ -296,12 +298,12 @@ session_start();
 
         <div class="col-xs-4 visible-xs">
           <a class="navbar-brand" href="index.php">
-            <img class="ischool-logo" src="pictures/modules/logo_banner.png" alt="iSchool" />
+            <img class="ischool-logo" src="pictures/modules/logo_banner.png" alt="LMS" />
           </a>
         </div>
 
         <a class="navbar-brand hidden-xs" href="index.php">
-          <img class="ischool-logo" src="pictures/modules/logo_banner.png" alt="iSchool" />
+          <img class="ischool-logo" src="pictures/modules/logo_banner.png" alt="LMS" />
         </a>
 
       </div>
@@ -474,7 +476,7 @@ session_start();
 
   </div>
 
-  <div id="carousel_images" class="carousel slide hidden-xs" data-ride="carousel" data-interval="5000">
+  <div id="carousel_images" class="carousel slide hidden-xs" data-ride="carousel" data-interval="3000">
 
     <div class="carousel-inner">
 
@@ -523,6 +525,60 @@ session_start();
         </div>
       </div>
 
+      <div class="item">
+        <img class="carousel-image" src="pictures/modules/image_carousel_6.jpg" alt="Carousel" />
+        <div class="container-fluid">
+          <div class="carousel-caption">
+            <h1 style="letter-spacing:5px;">Course Management</h1>
+          </div>
+        </div>
+      </div>
+
+      <div class="item">
+        <img class="carousel-image" src="pictures/modules/image_carousel_7.jpg" alt="Carousel" />
+        <div class="container-fluid">
+          <div class="carousel-caption">
+            <h1 style="letter-spacing:5px;">Student Management</h1>
+          </div>
+        </div>
+      </div>
+
+      <div class="item">
+        <img class="carousel-image" src="pictures/modules/image_carousel_8.jpg" alt="Carousel" />
+        <div class="container-fluid">
+          <div class="carousel-caption">
+            <h1 style="letter-spacing:5px;">Examination Management</h1>
+          </div>
+        </div>
+      </div>
+
+      <div class="item">
+        <img class="carousel-image" src="pictures/modules/image_carousel_9.jpg" alt="Carousel" />
+        <div class="container-fluid">
+          <div class="carousel-caption">
+            <h1 style="letter-spacing:5px;">Assessment of Activities</h1>
+          </div>
+        </div>
+      </div>
+
+      <div class="item">
+        <img class="carousel-image" src="pictures/modules/image_carousel_10.jpg" alt="Carousel" />
+        <div class="container-fluid">
+          <div class="carousel-caption">
+            <h1 style="letter-spacing:5px;">Course Material Managment</h1>
+          </div>
+        </div>
+      </div>
+
+      <div class="item">
+        <img class="carousel-image" src="pictures/modules/image_carousel_11.jpg" alt="Carousel" />
+        <div class="container-fluid">
+          <div class="carousel-caption">
+            <h1 style="letter-spacing:5px;">Feedback Management</h1>
+          </div>
+        </div>
+      </div>
+
     </div>
 
   </div>
@@ -536,9 +592,9 @@ session_start();
       <div class="row">
 
         <div class="col-md-10 col-sm-12 col-md-offset-1 text-center">
-          <h2 class="section-main-heading text-main-green">About iSchool</h2>
+          <h2 class="section-main-heading text-main-green">About LMS</h2>
           <p class="text-muted">
-            iSchool allow instructors and students to share instructional materials, make class announcements, submit and return course assignments, and communicate with each other online. This study investigated how students use LMS to interact, collaborate, and construct knowledge within the context of a group project but without mediation by the instructor.
+            LMS allow instructors and students to share instructional materials, make class announcements, submit and return course assignments, and communicate with each other online. This study investigated how students use LMS to interact, collaborate, and construct knowledge within the context of a group project but without mediation by the instructor.
           </p>
         </div>
 
@@ -557,7 +613,7 @@ session_start();
           <div>
             <h2 class="section-heading text-main-green">Interactive</h2>
             <p class="text-justify">
-              iSchool is an easy way to get your students connected so they can safely collaborate, get and stay organized, and access assignments, quizzes, students progress and announcements. It is also an easier way to communicate to your students through messaging.
+              LMS is an easy way to get your students connected so they can safely collaborate, get and stay organized, and access assignments, quizzes, students progress and announcements. It is also an easier way to communicate to your students through messaging.
             </p>
           </div>
 
@@ -578,7 +634,7 @@ session_start();
             <div class="media">
               <h2 class="section-heading text-main-green" style="position:relative;">User Friendly</h2>
               <p class="text-justify">
-                iSchool provides a reliable, user friendly learning management platform that everyone can use for free. As a teaching tool, you can use it for quick activities to start a class, post assignments, take an online quiz. It is also an organized way to store files uploaded/downloaded by users.
+                LMS provides a reliable, user friendly learning management platform that everyone can use for free. As a teaching tool, you can use it for quick activities to start a class, post assignments, take an online quiz. It is also an organized way to store files uploaded/downloaded by users.
               </p>
             </div>
 
@@ -599,7 +655,7 @@ session_start();
           <div class="media">
             <h2 class="section-heading text-main-green">Real Time</h2>
             <p class="text-justify">
-              iSchool is a free social learning network where teachers and students can have a real-time communications and sharing of materials. iSchool update information at the same rate as they receive data.
+              LMS is a free social learning network where teachers and students can have a real-time communications and sharing of materials. LMS update information at the same rate as they receive data.
             </p>
           </div>
 
@@ -620,7 +676,7 @@ session_start();
             <div class="media">
               <h2 class="section-heading text-main-green" style="position:relative;">Building Connections</h2>
               <p class="text-justify">
-                Adding teacher connections is an important step in building your network of resources. Once you find a teacher you would like to connect with, you can request to connect with them by simply clicking the join connection button. Or the teacher can add his/her students. This is one great function that iSchool offers.
+                Adding teacher connections is an important step in building your network of resources. Once you find a teacher you would like to connect with, you can request to connect with them by simply clicking the join connection button. Or the teacher can add his/her students. This is one great function that LMS offers.
               </p>
             </div>
 
@@ -641,7 +697,7 @@ session_start();
           <div class="media">
             <h2 class="section-heading text-main-green">Security and Privacy</h2>
             <p class="text-justify">
-              You want your private information to stay that way. iSchool is dedicated to keeping you protected - online and off. We make sure that every detail and information you give is secured and private.
+              You want your private information to stay that way. LMS is dedicated to keeping you protected - online and off. We make sure that every detail and information you give is secured and private.
             </p>
           </div>
 
@@ -662,125 +718,10 @@ session_start();
             <div class="media">
               <h2 class="section-heading text-main-green" style="position:relative;">Reliability</h2>
               <p class="text-justify">
-                iSchool offers a great communication tools to help a teacher to plan. It save lots of time and really engages students. It's all great for teacher to organize leaning materials.
+                LMS offers a great communication tools to help a teacher to plan. It save lots of time and really engages students. It's all great for teacher to organize leaning materials.
               </p>
             </div>
 
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-  <div class="container">
-
-    <div id="about_us" class="navbar_content">
-
-      <div class="row">
-
-        <div class="col-md-12 col-sm-12">
-          <h1 class="text-center text-main-green" style="font-size:40px;">About <strong>Us</strong></h1>
-        </div>
-
-      </div>
-
-      <div class="row">
-
-        <div class="col-md-7 col-sm-12">
-
-          <div class="text-center">
-            <img class="img-circle img-thumbnail image-overview-1" src="pictures/overview/plp.jpg" alt="Not Available" style="width:200px;" />
-          </div>
-
-          <div class="media">
-            <h3 class="media-heading" style="position:relative;">Pamantasan ng Lungsod ng Pasig</h3>
-            <h4 class="media-subheading"><i>2000-Present..</i></h4>
-            <p class="text-justify text-muted">
-              Pamantasan ng Lungsod ng Pasig, also known as University of Pasig City, is a locally-funded university that caters to students from low-income families, particularly those that reside in Pasig City. Established in 2000, the university currently has an approximate 3000 students enrolled in its undergraduate programs another 1000 students enrolled in its post-graduate programs.
-            </p>
-          </div>
-
-        </div>
-
-      </div>
-
-      <div class="row">
-
-        <div class="col-md-7 col-sm-12 col-md-offset-5">
-
-          <div class="text-center">
-            <img class="img-circle img-thumbnail image-overview-2" src="pictures/overview/redge.jpg" alt="Not Available" style="width:200px;" />
-          </div>
-
-          <div class="media">
-            <h3 class="media-heading" style="position:relative;">Riegie D. Tan</h3>
-            <h4 class="media-subheading"><i>Thesis Adviser</i></h4>
-            <p class="text-justify text-muted">
-              Riegie Tan studied Master of Science in Information Technology at Rizal Technological University (Boni Campus). He is currently living at Mandaluyong City and is working at the Pamantasan ng Lungsod ng Pasig as a full time professor.
-            </p>
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-  <div class="container" style="margin-top:15px;">
-
-    <div class="row">
-
-      <div class="col-md-4 col-sm-12">
-
-        <div class="a panel panel-default">
-
-          <div class="panel-body text-center">
-            <img class="img-rounded" src="pictures/modules/cagampang.jpg" alt="Not Available" style="width:200px;" />
-            <h4>Jamel N. Cagampang</h4>
-            <h5><i>Developer</i></h5>
-            <p class="text-muted">
-              "Education is the most powerful weapon which you can use to change the world."
-            </p>
-          </div>
-
-        </div>
-
-      </div>
-
-      <div class="col-md-4 col-sm-12">
-
-        <div class="b panel panel-default">
-
-          <div class="panel-body text-center">
-            <img class="img-rounded" src="pictures/modules/colarat.jpg" alt="Not Available" style="width:200px;" />
-            <h4>Zeah Mae G. Colarat</h4>
-            <h5><i>Developer</i></h5>
-            <p class="text-muted">
-              "Education is what remains after one has forgotten what one has learned in school."
-            </p>
-          </div>
-
-        </div>
-
-      </div>
-
-      <div class="col-md-4 col-sm-12">
-
-        <div class="c panel panel-default">
-
-          <div class="panel-body text-center">
-            <img class="img-rounded" src="pictures/modules/flores.png" alt="Not Available" style="width:200px;" />
-            <h4>Desiree Anne S. Flores</h4>
-            <h5><i>Developer</i></h5>
-            <p class="text-muted">
-              "Education is the passport to the future, for tomorrow belongs to those who prepare for it today."
-            </p>
           </div>
 
         </div>
@@ -809,7 +750,7 @@ session_start();
               </a>
 
               <a class="text-main-black" href="#" style="text-decoration:none; font-size:15px;">
-                <p style="margin-left:25px;"><span class="fa fa-envelope"></span> <strong>Email:</strong> iSchool@yahoo.com</p>
+                <p style="margin-left:25px;"><span class="fa fa-envelope"></span> <strong>Email:</strong> tan_riegie@plpasig.edu.ph</p>
               </a>
 
               <a class="text-main-black" href="#" style="text-decoration:none; font-size:15px;">

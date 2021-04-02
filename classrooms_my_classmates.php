@@ -6,7 +6,7 @@ session_start();
 
 <head>
 
-  <title>iSchool | My Classmates</title>
+  <title>LMS | My Classmates</title>
 
   <?php
   require 'meta.php';

@@ -14,7 +14,7 @@
 
       <div class="col-xs-4 visible-xs">
         <a class="navbar-brand" href="index.php">
-          <img class="ischool-logo" src="pictures/modules/logo_banner.png" alt="iSchool" />
+          <img class="ischool-logo" src="pictures/modules/logo_banner.png" alt="LMS" />
         </a>
       </div>
 
@@ -27,7 +27,7 @@
       </div>
 
       <a class="navbar-brand hidden-xs" href="index.php">
-        <img class="ischool-logo" src="pictures/modules/logo_banner.png" alt="iSchool" />
+        <img class="ischool-logo" src="pictures/modules/logo_banner.png" alt="LMS" />
       </a>
 
     </div>

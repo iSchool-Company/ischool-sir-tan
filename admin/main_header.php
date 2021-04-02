@@ -11,7 +11,7 @@
       </button>
 
       <a class="navbar-brand" href="index.php">
-        <img class="ischool-logo" src="../pictures/modules/logo_banner.png" alt="iSchool" />
+        <img class="ischool-logo" src="../pictures/modules/logo_banner.png" alt="LMS" />
       </a>
 
     </div>

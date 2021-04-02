@@ -6,7 +6,7 @@ session_start();
 
 <head>
 
-  <title>iSchool | My Profile</title>
+  <title>LMS | My Profile</title>
 
   <?php
   require 'meta.php';

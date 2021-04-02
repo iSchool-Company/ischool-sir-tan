@@ -2,7 +2,7 @@
 
   <div class="row first-row">
     <div class="col-md-12 col-sm-12">
-      <img class="center-block" src="pictures/modules/tagline_logo.png" alt="iSchool" />
+      <img class="center-block" src="pictures/modules/tagline_logo.png" alt="LMS" />
     </div>
   </div>
 
@@ -29,7 +29,7 @@
     </div>
 
     <div id="copyright" class="col-md-6 col-sm-12 text-center">
-      iSchool &copy; <?php echo date('Y'); ?>. All Rights Reserved.
+      LMS &copy; <?php echo date('Y'); ?>. All Rights Reserved.
     </div>
 
   </div>
